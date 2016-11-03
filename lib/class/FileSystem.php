@@ -30,5 +30,40 @@
 			return null;
 		}
 
+		/**
+		 * Get the contents of a file
+		 *
+		 * @param string $file | Path To File
+		 *
+		 * @return string | File Contents
+		 */
+		public static function read($file){
+			return file_get_contents($file);
+		}
+
+		/**
+		 * Check if a file exists
+		 *
+		 * @param string $file | Path To File
+		 *
+		 * @return boolean
+		 */
+		public static function fileExists($file){
+			return file_exists($file);
+		}
+
+		/**
+		 * Write contents to a file
+		 *
+		 * @param string $file | Path To File
+		 * @param string $content | Content To Write
+		 */
+		public static function write($file, $content){
+			if(self::fileExists($file)){
+				$file = fopen($file, "a");
+				fwrite($file, $content);
+				fclose($file);
+			}
+		}
 	}
 ?>
