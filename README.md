@@ -19,11 +19,11 @@ Extract the contents and rename your project's directory
 The index.php file has the following domain set to the Router by default:
  ```php
 Router::$domain = "localhost/Ikaros";
-```php
+```
 
 You'll want to change it to your project's location:
 
-```
+```php
 Router::$domain = "localhost/YourDirectory";
 ```
 #### 2.2 Configure the .htaccess file
