@@ -4,6 +4,9 @@
 
 /** Main Style goes here**/
 
+h1 {
+	font-weight: lighter;
+}
 
 /** Place here all Media Queries and it's styles.**/
 
