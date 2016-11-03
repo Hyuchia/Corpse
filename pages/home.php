@@ -50,24 +50,24 @@
 			<meta name="application-name" content="{{_title}}"/> <!-- App Title -->
 			<meta name="msapplication-tooltip" content="{{_title}}"/> <!--Small text on hover-->
 			<meta name="msapplication-starturl" content="http://"/> <!-- URL to start in -->
-			<meta name="msapplication-square70x70logo" content="img/ms-70x70.png" /><!--Image for Tile 70x70-->
-			<meta name="msapplication-square150x150logo" content="img/ms-150x150.png" /><!--Image for Tile 150x150-->
-			<meta name="msapplication-wide310x150logo" content="img/ms-310x150.png" /><!--Image for Tile 310x150-->
-			<meta name="msapplication-square310x310logo" content="img/ms-310x310.png" /><!--Image for Tile 310x310-->
+			<meta name="msapplication-square70x70logo" content="img/icon-70x70.png" /><!--Image for Tile 70x70-->
+			<meta name="msapplication-square150x150logo" content="img/icon-150x150.png" /><!--Image for Tile 150x150-->
+			<meta name="msapplication-wide310x150logo" content="img/icon-310x150.png" /><!--Image for Tile 310x150-->
+			<meta name="msapplication-square310x310logo" content="img/icon-310x310.png" /><!--Image for Tile 310x310-->
 
 		<!--END of Web Apps Tags-->
 
 		<link rel="publisher" href="https://plus.google.com/{{_google}}"><!--Publisher's Google+ URL-->
 
 		<!-- Android Mobile Icons-->
-		<link rel="icon" sizes="192x192" href="img/icon_192x192.png">
-		<link rel="icon" sizes="128x128" href="img/icon_128x128.png">
+		<link rel="icon" sizes="192x192" href="img/icon-192x192.png">
+		<link rel="icon" sizes="128x128" href="img/icon-128x128.png">
 
 		<!--Apple mobile icons-->
-		<link rel="apple-touch-icon" href="img/touch-icon-iphone.png"><!--60 x 60-->
-		<link rel="apple-touch-icon" sizes="76x76" href="img/touch-icon-ipad.png"><!--76 x 76-->
-		<link rel="apple-touch-icon" sizes="120x120" href="img/touch-icon-iphone-retina.png"><!--120 x 120-->
-		<link rel="apple-touch-icon" sizes="152x152" href="img/touch-icon-ipad-retina.png"><!--152 x 152-->
+		<link rel="apple-touch-icon" href="img/icon-60x60.png"><!--60 x 60-->
+		<link rel="apple-touch-icon" sizes="76x76" href="img/icon-76x76.png"><!--76 x 76-->
+		<link rel="apple-touch-icon" sizes="120x120" href="img/icon-120x120.png"><!--120 x 120-->
+		<link rel="apple-touch-icon" sizes="152x152" href="img/icon-152x152.png"><!--152 x 152-->
 
 		<link rel="shortcut icon" href="img/favicon.ico"/><!--Favicon. Good tool for creating one: http://xiconeditor.com/ Create all sizes.-->
 		<link rel="canonical" href="{{_domain}}"><!--Canonical URL of your webpage-->
