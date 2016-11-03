@@ -1,0 +1,9 @@
+*.zip
+.DS_Store
+.Thumbs
+.thumbs
+._*
+~*
+*~
+node_modules
+build
