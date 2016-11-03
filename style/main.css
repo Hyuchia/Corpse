@@ -8,6 +8,11 @@ h1 {
 	font-weight: lighter;
 }
 
+small {
+	display: block;
+	font-size: 0.8rem;
+}
+
 /** Place here all Media Queries and it's styles.**/
 
 /** Default Style. Don't change. (320px) **/
