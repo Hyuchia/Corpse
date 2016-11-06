@@ -13,7 +13,7 @@
 
         // Set what page and template should be used to render this template.
         function __construct(){
-            $this -> setPage("home.php");
+            $this -> setPage("home.html");
             $this -> setTemplate("main.html");
         }
     }

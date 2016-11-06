@@ -8,7 +8,7 @@
 
 	class Receiver {
 
-		public static function receive($method){
+		public static function get($method, $keys, $allowHTML = false, $allowEmpty = false){
 			$keys = explode(",", $keys);
 			$array = array();
 
