@@ -31,11 +31,7 @@
 		}
 
 		protected function connect(){
-		    try{
-		        $this -> pdo = new PDO("mysql:host=$this->host;dbname=$this->database;charset=utf8", $this -> user, $this -> pass);
-		    }catch(PDOException $e){
-		        die($e);
-		    }
+		    $this -> pdo = new PDO("mysql:host=$this->host;dbname=$this->database;charset=utf8", $this -> user, $this -> pass);
 		}
 
 		public function query($query, $array = []){
