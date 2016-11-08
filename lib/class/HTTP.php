@@ -52,7 +52,7 @@
 			    $error -> data["description"] .= "<p><b>Aegis Flavor:</b> ".Aegis::$flavor."</p>";
 			    $error -> data["description"] .= "<p><b>Version:</b> ".Aegis::$version."</p>";
 			    if($number != null){
-			        $error -> data["description"] = "<p><b>Error Code:</b> $number</p>";
+			        $error -> data["description"] .= "<p><b>Error Code:</b> $number</p>";
     			    $error -> data["description"] .= "<p><b>Message:</b> $message</p>";
     			    $error -> data["description"] .= "<p><b>File:</b> $file</p>";
      			    $error -> data["description"] .= "<p><b>Line:</b> $line</p>";
