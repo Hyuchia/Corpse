@@ -68,6 +68,32 @@
 		    return false;
 		}
 
+        public function select($table, $values, $where = null, $equals = null){
+			$fields = "";
+			$array = array();
+
+			foreach($values as $key => $value){
+				$fields .= "`$value`,";
+			}
+			$fields = rtrim($fields, ",");
+			
+			if($where != null && $equals != null){
+			    array_push($array, $equals);
+			    $query = "SELECT $fields FROM `$table` WHERE `$where` = ?";
+			}else{
+			    $query = "SELECT $fields FROM `$table`";
+			}
+
+			if($sth = $this -> getPdo() -> prepare($query)){
+
+				if($sth -> execute($array)){
+				    return $sth -> fetchAll(PDO::FETCH_ASSOC);
+				}else{
+				    return null;
+				}
+			}
+		}
+        
 		public function insert($table, $values){
 			$fields = "";
 			$questionMarks = "";
