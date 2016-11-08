@@ -1,11 +1,11 @@
 /** Space for all imported Fonts **/
 
 
-
 /** Main Style goes here**/
 
 h1 {
 	font-weight: lighter;
+	font-family: 'Open Sans', sans-serif;
 }
 
 small {
