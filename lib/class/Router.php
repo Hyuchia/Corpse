@@ -52,6 +52,16 @@
 		}
 		
 		/**
+		 * Register a route for access via PATCH method.
+		 *
+		 * @param string $route | Route To Match
+		 * @param function $action | Callback Function To Run When Accessed
+		 */
+		public static function patch($route, $action){
+			self::registerRoute('PATCH', new Route($route, $action));
+		}
+		
+		/**
 		 * Register a route for access via DELETE method.
 		 *
 		 * @param string $route | Route To Match
