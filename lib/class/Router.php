@@ -50,6 +50,16 @@
 		public static function put($route, $action){
 			self::registerRoute('PUT', new Route($route, $action));
 		}
+		
+		/**
+		 * Register a route for access via DELETE method.
+		 *
+		 * @param string $route | Route To Match
+		 * @param function $action | Callback Function To Run When Accessed
+		 */
+		public static function delete($route, $action){
+			self::registerRoute('DELETE', new Route($route, $action));
+		}
 
 		/**
 		 * Register a route for access via any method.
