@@ -17,8 +17,13 @@
         public static function type($type, $charset = 'utf-8'){
             $contentType = "";
             switch($type){
+                
                 case "json":
                     header("Content-Type: application/json;charset=$charset");
+                    break;
+                    
+                case "html":
+                    header("Content-Type: text/html;charset=$charset");
                     break;
             }
 
@@ -54,6 +59,11 @@
 			    }
             }
             switch($code){
+                case 400:
+					header($_SERVER["SERVER_PROTOCOL"]." 400 Bad Request", true, 404);
+					$error -> data["title"] = "Bad Request";
+					$error -> data["message"] = "The request is invalid.";
+					break;
 				case 404:
 					header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
 					$error -> data["title"] = "Page Not Found";
