@@ -29,6 +29,17 @@
 		}
 	}
 
+    /**
+	 * Custom handler for exceptions.
+	 *
+	 * It will send a 500 error code and page with debugging information
+	 * in case it is enabled.
+	 */
+    function exceptionHandler($exception){
+        HTTP::error(500, $exception -> getCode(), $exception -> getMessage(), $exception -> getFile(), $exception -> getLine());
+		return true;
+    }
+    
 	/**
 	 * Custom error handler for errors.
 	 *
@@ -57,6 +68,9 @@
 		}
 	}
 
+    // Set custom exception handler function
+    set_exception_handler("exceptionHandler");
+    
 	// Set custom error handler function
 	set_error_handler("errorHandler");
 
