@@ -130,6 +130,49 @@
 		}
 		
 		/**
+         * Get data received from a PATCH request
+         * 
+         * @param mixed $keys | Expected data names
+         * @param boolean $allowHTML | If the data should contain HTML code
+         * @param boolean $allowEmpty | If the data can be empty
+         * 
+         * @return mixed or null | Associative array with received data
+         */
+		public static function patch($keys = null, $allowHTML = false, $allowEmpty = false){
+		    
+		    if($_SERVER['REQUEST_METHOD'] != "PATCH"){
+		        return null;
+		    }
+		    
+		    parse_str(file_get_contents("php://input"), $_PATCH);
+		    
+		    if($keys != null){
+		        $array = array();
+    			foreach($keys as $value){
+    				if(isset($_PATCH[$value])){
+    
+    					if(!$allowEmpty && empty($_PATCH[$value])){
+    						return null;
+    					}
+            
+                        if(!$allowHTML){
+                            $array[$value] = strip_tags($_PATCH[$value]);
+                        }else{
+                            $array[$value] = $_PATCH[$value];
+                        }
+    
+    				}else{
+    					return null;
+    				}
+    			}
+    			return $array;
+		    }else{
+		        return $_PATCH;
+		    }
+		    
+		}
+		
+		/**
          * Get data received from a DELETE request
          * 
          * @param mixed $keys | Expected data names
