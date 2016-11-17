@@ -28,8 +28,9 @@
 	 * correctly since it's used in the base tag for the pages. Set it to the
 	 * path of your project.
 	 */
-	Router::$domain = "localhost/Ikaros";
+	Router::$domain = "localhost/Corpse";
 
+	$db = new Database(Config::get("DB_User"), Config::get("DB_Pass"), Config::get("DB"));
 	/**
 	 * Register Routes
 	 *
@@ -38,6 +39,14 @@
 	 */
 	Router::get("/", function(){
 		return new main();
+	});
+
+	Router::get("/{id}", function($id){
+		return new corpse($id);
+	});
+
+	Router::get("/corpse/{id}", function($id){
+		return new corpseAdd($id);
 	});
 
 	/**
