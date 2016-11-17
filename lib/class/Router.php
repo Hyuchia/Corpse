@@ -18,7 +18,8 @@
 				"POST" => [],
 				"PUT" => [],
 				"DELETE" => [],
-				"PATCH" => []
+				"PATCH" => [],
+				"OPTIONS" => []
 			];
 
 		/**
@@ -50,7 +51,7 @@
 		public static function put($route, $action){
 			self::registerRoute('PUT', new Route($route, $action));
 		}
-		
+
 		/**
 		 * Register a route for access via PATCH method.
 		 *
@@ -60,7 +61,7 @@
 		public static function patch($route, $action){
 			self::registerRoute('PATCH', new Route($route, $action));
 		}
-		
+
 		/**
 		 * Register a route for access via DELETE method.
 		 *
@@ -69,6 +70,16 @@
 		 */
 		public static function delete($route, $action){
 			self::registerRoute('DELETE', new Route($route, $action));
+		}
+
+		/**
+		 * Register a route for access via OPTIONS method.
+		 *
+		 * @param string $route | Route To Match
+		 * @param function $action | Callback Function To Run When Accessed
+		 */
+		public static function options($route, $action){
+			self::registerRoute('OPTIONS', new Route($route, $action));
 		}
 
 		/**
