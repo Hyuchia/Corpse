@@ -24,6 +24,8 @@
 
 				$this -> _title = $corpse["Title"];
 				$text = explode("\n", $corpse["Content"]);
+				array_pop($text);
+				$this -> first = $text[0];
 				$this -> last = end($text);
 			}else{
 				HTTP::error(404);

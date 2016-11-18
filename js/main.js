@@ -32,26 +32,10 @@ $_ready(function(){
 	$_("[data-trigger]").click(function(){
 		switch($_(this).data("trigger")){
 			case "full-corpse":
-				Request.json("/Corpse/" + $_(this).data("corpse"), {
-					onload: function(data){
-						console.log(data);
-					},
-
-					error: function(data){
-						console.log(data);
-					}
-				});
+				location.href = "/Corpse/" + $_(this).data("corpse");
 				break;
 			case "fragment":
-					Request.json("/Corpse/corpse" + $_(this).data("corpse"), {
-						onload: function(data){
-							console.log(data);
-						},
-
-						error: function(data){
-							console.log(data);
-						}
-					});
+				location.href = "/Corpse/corpse/" + $_(this).data("corpse");
 					break;
 		}
 	});
