@@ -10,11 +10,16 @@
 
         // Set Meta Tags Information.
         public $_title = "Aegis Framework";
+		public $corpses;
 
         // Set what page and template should be used to render this template.
         function __construct(){
             $this -> setPage("home.html");
             $this -> setTemplate("main.html");
+
+			global $db;
+
+			$this -> corpses = $db -> selectAllFrom("Corpse");
         }
     }
 
