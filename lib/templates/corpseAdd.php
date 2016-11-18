@@ -17,6 +17,7 @@
 
 			$this -> setPage("home.html");
             $this -> setTemplate("corpseAdd.html");
+			$this -> id = $id;
 
 			if($db -> exists("Corpse", "ID", $id)){
 				$corpse = $db -> select("Corpse", ["Title", "Content"], "ID", $id)[0];

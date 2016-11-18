@@ -49,7 +49,7 @@
 		return new corpseAdd($id);
 	});
 
-	Router::post("/{id}", function($id){
+	Router::post("/corpse/{id}", function($id){
 		global $db;
 
 		if($db -> exists("Corpse", "ID", $id)){
