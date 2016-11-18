@@ -1,0 +1,167 @@
+//------------------------------------------------------------------------------
+//  This file contains all styles related to the link component
+//------------------------------------------------------------------------------
+
+/*
+    Overrides anchor default style
+ */
+a{
+    @include transition($global-animation);
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+}
+
+
+
+
+
+/*
+    Creates a link element
+    @extend 'a' element
+ */
+a.link{
+    @extend a;
+    @include transition(color $global-animation-duration $global-animation-timing);
+    color: $color-text;
+
+    &:hover{
+        color: $color-text-light;
+    }
+
+    &.-color-reversed{
+        color: $color-text-light;
+        &:hover{ color: $color-text; }
+    }
+    &.-color-white{
+        color: $color-text-white;
+        &:hover{ color: $color-text-white-light; }
+    }
+    &.-color-white-reversed{
+        color: $color-text-white-light;
+        &:hover{ color: $color-text-white; }
+    }
+    &.-color-primary{
+        color: $color-brand-primary;
+        &:hover{ color: inherit; }
+    }
+}
+
+
+
+
+
+/*
+    Creates a variation of link element
+    Defines styles for underlined links
+    @extend 'a' element
+ */
+a.link--underlined{
+    @extend a;
+    @include transition(color $global-animation-duration $global-animation-timing);
+    display: inline-block;
+    position: relative;
+    color: $color-text;
+
+    &:before{
+        @include transition(color $global-animation-duration $global-animation-timing);
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        right: 0;
+        background-color: $color-text;
+    }
+
+    &:hover{
+        color: $color-text-light;
+
+        &:before{
+            background-color: $color-text-light;
+        }
+    }
+
+    &.-color-reversed{
+        color: $color-text-light;
+        &:before{ background-color: $color-text-light; }
+        &:hover{
+            color: $color-text;
+            &:before{ background-color: $color-text; }
+        }
+    }
+    &.-color-white{
+        color: $color-text-white;
+        &:before{ background-color: $color-text-white; }
+        &:hover{ color: $color-text-white-light;
+            &:before{ background-color: $color-text-white-light; }
+        }
+    }
+    &.-color-white-reversed{
+        color: $color-text-white-light;
+        &:before{ background-color: $color-text-white-light; }
+        &:hover{ color: $color-text-white;
+            &:before{ background-color: $color-text-white; }
+        }
+    }
+    &.-color-primary{
+        color: $color-brand-primary;
+        &:before{ background-color: $color-brand-primary; }
+        &:hover{ color: inherit;
+            &:before{ background-color: $color-text; }
+        }
+    }
+}
+
+
+
+
+
+/*
+    Creates a variation of link element
+    Defines styles for awesome links
+    @extend a
+ */
+a.link--awesome{
+    @extend a;
+    @include transition(color $global-animation-duration $global-animation-timing);
+    display: inline-block;
+    position: relative;
+    color: $color-text;
+
+    &:before{
+        @include transition(width $global-animation-duration $global-animation-timing);
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        position: absolute;
+        bottom: -7px;
+        left: 0;
+        right: 0;
+        background-color: $color-text;
+    }
+
+    &:hover:before{
+        width: 100%;
+    }
+
+    &.-color-white{
+        color: $color-text-white;
+
+        &:before{ background-color:$color-text-white; }
+    }
+
+    &.-color-primary{
+        color: inherit;
+
+        &:before{ background-color:$color-brand-primary; }
+
+        &:hover{
+            color: $color-brand-primary;
+        }
+    }
+}

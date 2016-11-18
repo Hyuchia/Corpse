@@ -1,0 +1,110 @@
+@charset 'UTF-8';
+
+/**
+ *    1. ABSTRACTS
+ *    Variables........................Globally used variables
+ *    Mixins...........................Globally used mixins
+ *    Functions........................Globally used functions
+ */
+
+@import 'abstracts/variables',
+        'abstracts/mixins',
+        'abstracts/functions';
+
+
+
+
+
+/**
+ *    2. VENDORS
+ *    Normalize.css....................Style normalizations
+ */
+
+@import 'vendor/normalize';
+
+
+
+
+
+/**
+ *    3. BASE
+ *    Base.............................Standard, basic styles
+ *    Fonts............................Globally used fonts
+ *    Typography.......................Basic typography style for copy text
+ *    Helpers..........................Helper classes
+ */
+
+@import 'base/base',
+        'base/fonts',
+        'base/typography',
+        'base/helpers';
+
+
+
+
+
+/**
+ *    4. COMPONENTS
+ *    - Atoms
+ *      Link...........................Styles related to link component
+ *      List...........................Styles related to list component
+ *      Table..........................Styles related to table component
+ *      Code...........................Styles related to code component
+ *      Button.........................Styles related to button component
+ *      Input..........................Styles related to input component
+ *      Image..........................Styles related to image component
+ *
+ *    - Molecules
+ *      Form...........................Styles related to form molecule
+ *      Media..........................Styles related to media molecule
+ *
+ *    -Organisms
+ *      Header.........................Styles related to the header organism
+ *      Footer.........................Styles related to the footer organism
+ */
+
+@import 'components/atom.link',
+        'components/atom.list',
+        'components/atom.button',
+        'components/atom.input',
+        'components/atom.table';
+        // 'components/atom.code',
+        // 'components/atom.image',
+        // 'components/molecule.form',
+        // 'components/molecule.media',
+        // 'components/organism.header',
+        // 'components/organism.footer';
+
+
+
+
+
+/**
+ *    5. LAYOUT
+ *    - Templates
+ *      Grid............................Styles related to the grid
+ *      Offsets.........................Styles related to offset classes
+ *      Off-canvas......................Styles related to off-canvas navigation
+ */
+
+@import 'layout/template.grid',
+        'layout/template.offsets',
+        'layout/template.off-canvas';
+
+
+
+
+
+/**
+ *    6. PAGES
+ *    Home.............................Styles specific to the home page
+ */
+
+
+
+
+
+/**
+ *    7. THEMES
+ *    Default..........................Default theme
+ */

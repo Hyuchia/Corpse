@@ -1,0 +1,86 @@
+//------------------------------------------------------------------------------
+//  This file contains useful generic mixins
+//------------------------------------------------------------------------------
+//  prefix()...............Handle vendor prefixes (Sass 3.2 fallback)
+//  prefix()...............Handle vendor prefixes (Sass 3.3)
+//  box-sizing()...........Prefix box-sizing property
+//  respond-to()...........Handle media queries
+
+
+/*
+     Hande CSS vendor prefixes
+     ----------------------------
+     @access public
+     ----------------------------
+     @param {string} $property - property to prefix
+     @param {*} $value - value of property
+     @param {list} $vendors - list of vendors to prefix
+*/
+@mixin prefix($property, $value, $vendors: (webkit moz ms o)) {
+      @if $vendors {
+        @each $vendor in $vendors {
+          #{"-" + $vendor + "-" + $property}: #{$value};
+        }
+      }
+      #{$property}: #{$value};
+}
+
+
+
+
+
+/**
+    Hande CSS vendor prefixes
+    -----------------------------
+    @access public
+    -----------------------------
+    @param {map} $map - map of property: value to prefix
+    @param {list} $vendors - list of vendors to prefix
+*/
+@mixin prefix($map, $vendors: (webkit moz ms o)) {
+ @each $property, $value in $map {
+       @if $vendors {
+         @each $vendor in $vendors {
+           #{"-" + $vendor + "-" + $property}: #{$value};
+         }
+       }
+       // Dump regular property anyway
+       #{$property}: #{$value};
+ }
+}
+
+
+
+
+
+/**
+    Prefix box-sizing property
+    -----------------------------
+    @access public
+    -----------------------------
+    @param {string} $val - value for the box-sizing property
+*/
+@mixin box-sizing($val) {
+   @include prefix((box-sizing: $val));
+}
+
+
+
+
+
+/**
+ *    Handle media queries
+ *    -----------------------
+ *    @access public
+ *    -----------------------
+ *    @param {string} $name - name of the breakpoint to which respond to
+ */
+@mixin respond-to($name){
+    @if map-has-key($breakpoints, $name){
+        @media screen and #{inspect(map-get($breakpoints, $name))}{
+            @content;
+        }
+    }@else{
+        @warn "Unfortunately, no value could be retrieved for #{inspect($name)}. Please make sure it is defined in $breakpoints map.";
+    }
+}

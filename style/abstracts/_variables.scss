@@ -1,0 +1,289 @@
+//------------------------------------------------------------------------------
+//  This file contains variables used globally
+//------------------------------------------------------------------------------
+//  Generic............................Commonly used values
+//  Color..............................Color palette
+//  Typography.........................Values for typography
+//  Breakpoints........................Breakpoints variables
+//  Grid...............................Grid related values
+//  List..............................Values for lists
+//  Button............................Values for button component
+
+/*********************************\
+    #GENERIC
+\*********************************/
+
+$global-margin: 0;
+$global-padding: 0;
+$global-font-size: 16px;
+$global-line-height: 24px;
+$global-font-weight: normal;
+$global-letter-spacing: normal;
+$global-animation-property: all;
+$global-animation-duration: 0.2s;
+$global-animation-timing: ease-in;
+$global-animation-delay: 0s;
+$global-animation: $global-animation-property $global-animation-duration $global-animation-timing $global-animation-delay;
+$global-btn-padding: 10px 15px;
+
+
+
+
+/*********************************\
+    #COLOR
+    1. Text and background
+    2. Brand
+    3. UI
+    4. Social
+\*********************************/
+
+/* [1] */
+$color-text: rgba(0, 0, 0, 0.87); //rgb(65,66,69)
+$color-text-light: rgba(0, 0, 0, 0.54);
+$color-text-lightest: rgba(0, 0, 0, 0.38);
+
+$color-text-white: rgba(255, 255, 255, 1);
+$color-text-white-light: rgba(255, 255, 255, 0.7);
+$color-text-white-lightest: rgba(255, 255, 255, 0.5);
+
+/* [2] */
+$color-brand-primary: #0069FF;
+$color-brand-secondary: #4FD696;
+$color-brand-bkg: #F2F4F8;
+
+/* [3] */
+$color-ui-black: #000000;
+$color-ui-white: #ffffff;
+$color-ui-success: #13ce66;
+$color-ui-error: #ff4949;
+$color-ui-warning: #FFC12D;
+
+$color-ui-grey: #E8E8E8;
+$color-ui-grey-light: #F5F5F5;
+$color-ui-grey-lightest: #FAFAFA;
+
+$color-ui-overlay-light: rgba(0, 0, 0, 0.36);
+$color-ui-overlay-dark: rgba(0, 0, 0, 0.85);
+
+$color-ui-selection: rgba($color-brand-secondary, 0.35);
+$color-ui-hightlight: rgba($color-brand-primary, 0.35);
+$color-ui-tap-highlight: transparent;
+
+$color-ui-scroll-bar: $color-brand-primary;
+$color-ui-placeholder: $color-text-lightest;
+
+$color-ui-elevation-resting: rgba(0, 0, 0, 0.6);
+$color-ui-elevation-header: rgba(0, 0, 0, 0.12);
+$color-ui-elevation-action-button: rgba(0, 0, 0, 0.24);
+$color-ui-elevation-raised: rgba(0, 0, 0, 0.36);
+$color-ui-elevation-drawer: rgba(0, 0, 0, 0.48);
+$color-ui-elevation-modal: rgba(0, 0, 0, 0.60);
+
+/* [4] */
+$color-social-twitter: #168de9;
+$color-social-facebook: #3d5a98;
+$color-social-google: #dd4b39;
+$color-social-youtube: #bb0000;
+$color-social-linkedin: #007bb5;
+$color-social-pinterest: #cb2027;
+$color-social-dribbble: #ea4c89;
+$color-social-behance: #1769ff;
+
+
+
+
+
+/*********************************\
+    #TYPOGRAPHY
+\*********************************/
+
+$font-weights: (
+    thin: 100,      extralight: 200,
+    light: 300,     regular: 400,
+    medium: 500,    semibold: 600,
+    bold: 700,      extrabold: 800,
+    heavy: 900
+);
+
+$heroheader-sizes: (
+    h1: 4.5em,   //72px
+    h2: 4.125em,    //66px
+    h3: 3.75em     //60px
+);
+$header-sizes: (
+    h1: 3em,        //48px
+    h2: 2.5em,      //40px
+    h3: 1.938em,    //31px
+    h4: 1.563em,    //25px
+    h5: 1.25em,       //20px
+    h6: 1em         //16px
+);
+$subheader-sizes: (
+    h1: 2.75em,       //44px
+    h2: 2.25em,       //36px
+    h3: 1.688em,      //27px
+    h4: 1.313em,      //21px
+    h5: 1em,          //16px
+    h6: 0.75em        //12px
+);
+
+$line-height-body: 1.5;
+$line-height-header: 1;
+$line-height-paragraph-lead: 2;
+
+$block-truncate-lines: 3;
+$block-truncate-line-height: 24;
+
+
+
+
+
+/*********************************\
+    #BREAKPOINTS
+\*********************************/
+
+/**
+ *    Defines common device breakpoints using a mobile-first approach
+ *    Each min-width is the previous category's max-width + 1px
+ *    @type Map
+ */
+$breakpoints: (
+    'mob-m': (min-width: 321px),    // Ex. iPhone 7
+    'mob-l': (min-width: 376px),    // Ex. iPhone 7 Plus
+    'tab': (min-width: 601px),      // Ex. iPad
+    'lap': (min-width: 769px),      // Ex. iPad landscape
+    'lap-m': (min-width: 1025px),   // Ex. 13' MacBook
+    'lap-l': (min-width: 1281px),   // Ex. 15' MacBook
+    'desk': (min-width: 1601px),  // Ex. 21.5' iMac
+    'desk-m': (min-width: 1921px),   // Ex. 27' iMac
+    '4k': (min-width: 2561px),      // Ex. 4K iMac
+    '5k': (min-width: 4097px)       // Ex. 5K iMac
+);
+
+
+
+
+
+/**
+ *    Defines key breakpoints for grid system
+ *    Key will be used for flex item size modifier class
+ *    Values refer to breakpoints map
+ *    @type Map
+ */
+$grid-breakpoints: (
+    mob: '',  // Intentionally empty, this is default
+    tab: 'tab',
+    lap: 'lap'
+);
+
+
+
+
+
+/**
+ *    Base static breakpoint to use globally
+ *    Value refers to breakpoints map
+ *    @type String
+ */
+$base-static-breakpoint: 'lap';
+
+
+
+
+
+/*********************************\
+    #GRID
+\*********************************/
+$grid-column-count: 12;
+$grid-column-gutter: 1.5em;
+
+/**
+ *    Defines the max width of flex container for given grid breakpoints
+ *    Should keep these breakpoints in sync with $grid-breakpoints
+ *    Key refers to breakpoint in $breakpoints
+ *    Value is calculated as 97% of category max-width
+ *    @type Map
+ */
+$flex-container-max-widths: (
+    'tab': 993.28px,
+    'lap': 1241.6px,
+    'desk': 1862.4px
+);
+
+$flexbox-wrap-default: wrap;
+$flexbox-justify-content-default: flex-start;
+$flexbox-align-items-default: stretch;
+$flexbox-align-content-default: stretch;
+
+
+
+
+
+/*********************************\
+    #LIST
+\*********************************/
+
+$list-type-brand-1: '../brand/list-style-image-1.svg';
+$list-type-brand-2: '../brand/list-style-image-2.svg';
+$list-inline-gap: 5px;
+
+
+
+
+
+/*********************************\
+    #BUTTON
+\*********************************/
+
+/**
+ *    Size of the 'border' of the buttons
+ *    In order to keep buttons of the same size this will be used for
+ *    an inset shadow instead of an actual border
+ *    @type {number}
+ */
+$button-border: 1.5px;
+
+
+
+
+
+/**
+ *    Percentage of opacity that will be applied to normal buttons on hover
+ */
+$button-hover-opacity: 10%;
+
+
+
+
+
+/**
+ *    Border radius for your buttons
+ *    Different than -rounded modifier of buttons
+ */
+$button-border-radius: 1px;
+
+
+
+
+
+/*********************************\
+    #INPUT
+\*********************************/
+
+/**
+ *    Size of the 'border' of inputs
+ *    In order to keep inputs of the same size this will be used for
+ *    an inset shadow instead of an actual border
+ *    @type {number}
+ */
+$input-border: 1.5px;
+
+
+
+
+
+/**
+ *    Border radius for your inputs
+ *    Different than -rounded modifier of input
+ */
+$input-border-radius: 1px;

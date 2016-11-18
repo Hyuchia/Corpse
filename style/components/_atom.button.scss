@@ -1,0 +1,260 @@
+//------------------------------------------------------------------------------
+//  This file contains all styles related to the button component
+//------------------------------------------------------------------------------
+
+/**
+ *    Resets default style of button tag
+ */
+button{
+    @include transition(background-color $global-animation-duration $global-animation-timing);
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: $color-ui-grey-light;
+    font-size: 1em;
+    color: $color-text-light;
+    border-radius: $button-border-radius;
+
+    &:hover, &:focus{
+        background-color: $color-ui-grey;
+    }
+
+    span.btn__icon,
+    i.btn__icon{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+/**
+ *    Defines styles for btn element
+ */
+.btn{
+    @extend button;
+
+    &.-rounded{ border-radius: 20em; }
+
+    &.-medium{  padding: 0.7rem 1.7rem; }
+
+    &.-large{   padding: 1rem 2.3rem; }
+
+    &.is-disabled,
+    &[disabled="true"],
+    &[disabled]{
+        cursor: not-allowed;
+        background-color: $color-ui-grey-light;
+        color: $color-text-lightest;
+        box-shadow: inset 0 0 0 $button-border $color-text-lightest;
+    }
+
+    &.-bkg-black{
+        background-color: $color-ui-black;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: lighten($color-ui-black, 12%); }
+    }
+
+    &.-bkg-white{
+        background-color: $color-ui-white;
+        color: $color-text;
+        &:hover, &:focus{ background-color: darken($color-ui-white, 12%); }
+    }
+
+    &.-bkg-success{
+        background-color: $color-ui-success;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-ui-success, $button-hover-opacity); }
+    }
+
+    &.-bkg-warning{
+        background-color: $color-ui-warning;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-ui-warning, $button-hover-opacity); }
+    }
+
+    &.-bkg-error{
+        background-color: $color-ui-error;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-ui-error, $button-hover-opacity); }
+    }
+
+    &.-bkg-primary{
+        background-color: $color-brand-primary;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-brand-primary, $button-hover-opacity); }
+    }
+
+    &.-bkg-secondary{
+        background-color: $color-brand-secondary;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-brand-secondary, $button-hover-opacity); }
+    }
+
+    &.-twitter{
+        background-color: $color-social-twitter;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-social-twitter, $button-hover-opacity); }
+    }
+
+    &.-facebook{
+        background-color: $color-social-facebook;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-social-facebook, $button-hover-opacity); }
+    }
+
+    &.-google{
+        background-color: $color-social-google;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-social-google, $button-hover-opacity); }
+    }
+
+    &.-youtube{
+        background-color: $color-social-youtube;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-social-youtube, $button-hover-opacity); }
+    }
+
+    &.-linkedin{
+        background-color: $color-social-linkedin;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-social-linkedin, $button-hover-opacity); }
+    }
+
+    &.-pinterest{
+        background-color: $color-social-pinterest;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-social-pinterest, $button-hover-opacity); }
+    }
+
+    &.-dribbble{
+        background-color: $color-social-dribbble;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-social-dribbble, $button-hover-opacity); }
+    }
+
+    &.-behance{
+        background-color: $color-social-behance;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: darken($color-social-behance, $button-hover-opacity); }
+    }
+}
+
+
+
+
+
+/**
+ *    Defines styles for ghost variation of btn element
+ */
+.btn--ghost{
+    @extend button;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 $button-border $color-ui-grey;
+    color: $color-text-light;
+    &:hover, &:focus{ background-color: $color-ui-grey; }
+
+    &.-rounded{ border-radius: 20em; }
+
+    &.-medium{  padding: 0.7rem 1.7rem; }
+
+    &.-large{   padding: 1rem 2.3rem; }
+
+    &.is-disabled,
+    &[disabled="true"],
+    &[disabled]{
+        cursor: not-allowed;
+        background-color: $color-ui-grey-light;
+        color: $color-text-lightest;
+        box-shadow: inset 0 0 0 $button-border $color-text-lightest;
+    }
+
+    &.-bkg-black{
+        box-shadow: inset 0 0 0 $button-border $color-ui-black;
+        color: $color-text;
+        &:hover, &:focus{ background-color: $color-ui-black; color: $color-text-white; }
+    }
+
+    &.-bkg-white{
+        box-shadow: inset 0 0 0 $button-border $color-ui-white;
+        color: $color-text-white;
+        &:hover, &:focus{ background-color: $color-ui-white; color: $color-text; }
+    }
+
+    &.-bkg-success{
+        box-shadow: inset 0 0 0 $button-border $color-ui-success;
+        color: $color-ui-success;
+        &:hover, &:focus{ background-color: $color-ui-success; color: $color-text-white; }
+    }
+
+    &.-bkg-warning{
+        box-shadow: inset 0 0 0 $button-border $color-ui-warning;
+        color: $color-ui-warning;
+        &:hover, &:focus{ background-color: $color-ui-warning; color: $color-text-white; }
+    }
+
+    &.-bkg-error{
+        box-shadow: inset 0 0 0 $button-border $color-ui-error;
+        color: $color-ui-error;
+        &:hover, &:focus{ background-color: $color-ui-error; color: $color-text-white; }
+    }
+
+    &.-bkg-primary{
+        box-shadow: inset 0 0 0 $button-border $color-brand-primary;
+        color: $color-brand-primary;
+        &:hover, &:focus{ background-color: $color-brand-primary; color: $color-text-white; }
+    }
+
+    &.-bkg-secondary{
+        box-shadow: inset 0 0 0 $button-border $color-brand-secondary;
+        color: $color-brand-secondary;
+        &:hover, &:focus{ background-color: $color-brand-secondary; color: $color-text-white; }
+    }
+
+    &.-twitter{
+        box-shadow: inset 0 0 0 $button-border $color-social-twitter;
+        color: $color-social-twitter;
+        &:hover, &:focus{ background-color: $color-social-twitter; color: $color-text-white; }
+    }
+
+    &.-facebook{
+        box-shadow: inset 0 0 0 $button-border $color-social-facebook;
+        color: $color-social-facebook;
+        &:hover, &:focus{ background-color: $color-social-facebook; color: $color-text-white; }
+    }
+
+    &.-google{
+        box-shadow: inset 0 0 0 $button-border $color-social-google;
+        color: $color-social-google;
+        &:hover, &:focus{ background-color: $color-social-google; color: $color-text-white; }
+    }
+
+    &.-youtube{
+        box-shadow: inset 0 0 0 $button-border $color-social-youtube;
+        color: $color-social-youtube;
+        &:hover, &:focus{ background-color: $color-social-youtube; color: $color-text-white; }
+    }
+
+    &.-linkedin{
+        box-shadow: inset 0 0 0 $button-border $color-social-linkedin;
+        color: $color-social-linkedin;
+        &:hover, &:focus{ background-color: $color-social-linkedin; color: $color-text-white; }
+    }
+
+    &.-pinterest{
+        box-shadow: inset 0 0 0 $button-border $color-social-pinterest;
+        color: $color-social-pinterest;
+        &:hover, &:focus{ background-color: $color-social-pinterest; color: $color-text-white; }
+    }
+
+    &.-dribbble{
+        box-shadow: inset 0 0 0 $button-border $color-social-dribbble;
+        color: $color-social-dribbble;
+        &:hover, &:focus{ background-color: $color-social-dribbble; color: $color-text-white; }
+    }
+
+    &.-behance{
+        box-shadow: inset 0 0 0 $button-border $color-social-behance;
+        color: $color-social-behance;
+        &:hover, &:focus{ background-color: $color-social-behance; color: $color-text-white; }
+    }
+}

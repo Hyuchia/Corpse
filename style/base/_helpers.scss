@@ -1,0 +1,513 @@
+//------------------------------------------------------------------------------
+//  This file contains helper classes to use globally
+//------------------------------------------------------------------------------
+//  1) Contextual colors
+//  2) Contextual backgrounds
+//  3) Text manipulation
+//  4) Alignment classess
+//  5) Display and visibility
+
+/***********************************************\
+    #CONTEXTUAL COLORS
+\***********************************************/
+
+/*
+    Set text color to predefined black
+ */
+.h-color-black{
+    color: $color-text;
+}
+
+
+
+
+
+/*
+    Set text color to predefined black with opacity
+ */
+.h-color-black-l{
+    color: $color-text-light;
+}
+
+
+
+
+
+/*
+    Set text color to predefined "disabled" black text
+ */
+.h-color-black-d{
+    color: $color-text-lightest;
+}
+
+
+
+
+
+/*
+    Set text to predefined white
+ */
+.h-color-white{
+    color: $color-text-white;
+}
+
+
+
+
+
+/*
+    Set text to predefined white with opacity
+ */
+.h-color-white-l{
+    color: $color-text-white-light;
+}
+
+
+
+
+
+/*
+    Set text to predefined "disabled" white text
+ */
+.h-color-white-d{
+    color: $color-text-white-lightest;
+}
+
+
+
+
+
+/*
+    Set text to predefined brand primary color
+ */
+.h-color-primary{
+    color: $color-brand-primary
+}
+
+
+
+
+
+/*
+    Set text to predefined brand secondary color
+ */
+.h-color-secondary{
+    color: $color-brand-secondary;
+}
+
+
+
+
+
+/*
+    Set text to predefined ui success color
+ */
+.h-color-success{
+    color: $color-ui-success;
+}
+
+
+
+
+
+/*
+    Set text to predefined ui warning color
+ */
+.h-color-warning{
+    color: $color-ui-warning;
+}
+
+
+
+
+
+/*
+    Set text to predefined ui error color
+ */
+.h-color-error{
+    color: $color-ui-error;
+}
+
+
+
+
+
+/***********************************************\
+    #CONTEXTUAL BACKGROUNDS
+\***********************************************/
+
+/*
+    Set background color to predefined ui black
+ */
+.h-bkg-black{
+    background-color: $color-ui-black;
+}
+
+
+
+
+
+/*
+    Set background color to predefined ui background white
+ */
+.h-bkg-white{
+    background-color: $color-ui-white;
+}
+
+
+
+
+
+/*
+    Set background color to predefined brand primary color
+ */
+.h-bkg-default{
+    background-color: $color-brand-bkg;
+}
+
+
+
+
+
+/*
+    Set background color to predefined brand primary color
+ */
+.h-bkg-primary{
+    background-color: $color-brand-primary;
+}
+
+
+
+
+
+/*
+    Set background color to predefined brand secondary color
+ */
+.h-bkg-secondary{
+    background-color: $color-brand-secondary;
+}
+
+
+
+
+
+/***********************************************\
+    #TEXT MANIPULATION
+\***********************************************/
+
+/*
+    Set text to uppercase
+ */
+.h-txt-uppercase{
+    text-transform: uppercase;
+}
+
+
+
+
+
+/*
+    Set text to lowercase
+ */
+.h-txt-lowercase{
+    text-transform: lowercase;
+}
+
+
+
+
+
+/*
+    Set text to bold
+ */
+.h-txt-bold{
+    font-weight: bold;
+}
+
+
+
+
+
+/*
+    Set text to italics
+ */
+.h-txt-italic{
+    font-style: italic;
+}
+
+
+
+
+
+/*
+    Underline text
+ */
+.h-txt-underline{
+    text-decoration: underline;
+}
+
+
+
+
+
+/*
+    Set text size to small
+ */
+.h-txt-small{
+    font-size: 75%;
+}
+
+
+
+
+
+/*
+    Truncate text with ellipsis
+ */
+.h-txt-truncate{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
+
+/*
+    Truncate multiline text with ellipsis
+    @require $block-truncate-lines variable
+ */
+.h-txt-truncate-multiline{
+    display: block;
+    display: -webkit-box;
+    height: calc($block-truncate-lines * $block-truncate-line-height + 1)px;
+    -webkit-line-clamp: $block-truncate-lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/***********************************************\
+    #ALIGNMENT CLASSESS
+\***********************************************/
+
+/*
+    Align text to left
+ */
+.h-align-left{
+    text-align: left;
+}
+
+
+
+
+
+/*
+    Align text to center
+ */
+.h-align-center{
+    text-align: center;
+}
+
+
+
+
+
+/*
+    Align text to right
+ */
+.h-align-right{
+    text-align: right;
+}
+
+
+
+
+
+/*
+    Vertically align element to center
+ */
+.h-valign-center{
+    position: relative;
+    top: 50%;
+    @include transform(translateY(-50%));
+}
+
+
+
+
+
+/*
+    Horizontally align block element to center
+ */
+.h-align-block-center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+/***********************************************\
+    #DISPLAY AND VISIBILITY
+\***********************************************/
+
+/*
+    Display element as inline
+ */
+.h-display-inline{
+    display: inline;
+}
+
+
+
+
+
+/*
+    Display element as block
+ */
+.h-display-block{
+    display: block;
+}
+
+
+
+
+
+/*
+    Display element as inline-block
+ */
+.h-display-ib{
+    display: inline-block;
+}
+
+
+
+
+
+/*
+    Show element on small devices
+ */
+.h-visible{ visibility: visible;}
+
+
+
+
+
+/*
+    Show element on tablet-size devices
+ */
+.h-visible-tab{
+    @include respond-to('tab'){ visibility: visible; }
+}
+
+
+
+
+
+/*
+    Show element on laptop devices
+ */
+.h-visible-lap{
+    @include respond-to('lap'){ visibility: visible; }
+}
+
+
+
+
+
+/*
+    Show element on desktop devices
+ */
+.h-visible-desk{
+    @include respond-to('desk'){ visibility: visible;}
+}
+
+
+
+
+
+/*
+    Make element invisible on small devices
+ */
+.h-invisible{ visibility: hidden; }
+
+
+
+
+
+/*
+    Make element invisible on tablet-size devices
+ */
+.h-invisible-tab{
+    @include respond-to('tab'){ visibility: hidden; }
+}
+
+
+
+
+
+/*
+    Make element invisible on laptop devices
+ */
+.h-invisible-lap{
+    @include respond-to('lap'){ visibility: hidden; }
+}
+
+
+
+
+
+/*
+    Make element invisible on desktop devices
+ */
+.h-invisible-desk{
+    @include respond-to('desk'){ visibility: hidden; }
+}
+
+
+
+
+
+/*
+    Hide element on small devices
+ */
+.h-hide{
+    display: none;
+}
+
+
+
+
+
+/*
+    Hide element on tablet-size devices
+ */
+.h-hide-tab{
+    @include respond-to('tab'){ display: none; }
+}
+
+
+
+
+
+/*
+    Hide element on laptop devices
+ */
+.h-hide-lap{
+    @include respond-to('lap'){ display: none; }
+}
+
+
+
+
+
+/*
+    Hide element on desktop devices
+ */
+.h-hide-desk{
+    @include respond-to('desk'){ display: none; }
+}

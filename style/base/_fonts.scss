@@ -1,0 +1,30 @@
+//------------------------------------------------------------------------------
+//  This file contains all fonts used in the project
+//------------------------------------------------------------------------------
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700';
+
+/**
+ *    Native fonts of common devices
+ *    @type List
+ */
+$system-font-stack: -apple-system, BlinkMacSystemFont,
+                    "Segoe UI", Roboto, Oxygen, Ubuntu,
+                    Cantarell, "Fira Sans", "Droid Sans",
+                    "Helvetica Neue", sans-serif;
+
+/**
+ *    Main font used in project
+ *    @type String | List
+ */
+$font-family-primary: $system-font-stack;
+
+/**
+ *    Secondary font used in project
+ *    @type String | List
+ */
+$font-family-secondary: $system-font-stack;
+
+/**
+ *    Creates font weight variables from predefined variable
+ */
+@include add-weight-variables();

@@ -1,0 +1,427 @@
+//------------------------------------------------------------------------------
+//  This file contains useful grid mixins
+//------------------------------------------------------------------------------
+//  FLEX CONTAINER
+//  flex()...........................Prefixes the flex value
+//  flex-direction().................Prefixes the flex-direction property
+//  flex-wrap()......................Prefixes the flex-wrap property
+//  justify-content()................Prefixes the justify-content property
+//  align-items()....................Prefixes the align-items property
+//  align-content()..................Prefixes the align-content property
+//
+//  FLEX ITEMS
+//  order()..........................Prefixes the order property
+//  flex-grow()......................Prefixes the flex-grow property
+//  flex-shrink()....................Prefixes the flex-shrink property
+//  flex-basis().....................Prefixes the flex-basis property
+//  align-self().....................Prefixes the align-self property
+//
+//  FUNCTIONS
+//  add-breakpoint-variables()....Creates variables for every breakpoint (currently not supported)
+//  _flex-row-item()..............Includes width and margin of row oriented flex-item
+//  _flex-column-item()...........Includes height and margin of row column flex-item
+//  add-grid()....................Define layout classes using breakpoints and grid columns
+//  add-container-breakpoints()...Define width breakpoints for flex container
+//  add-offset-classes()..........Creates classes for offset for every breakpoint
+
+/***************************\
+    #FLEX-CONTAINER
+\***************************/
+
+/*
+    Prefixes the flex value
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+*/
+ @mixin flex() {
+     display: -webkit-box;
+     display: -moz-box;
+     display: -ms-flexbox;
+     display: -webkit-flex;
+     display: flex;
+ }
+
+
+
+
+
+/*
+    Prefixes the flex-direction property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the flex-direction property
+ */
+ @mixin flex-direction($val) {
+ 	@include prefix((flex-direction: $val));
+ }
+
+
+
+
+
+ /*
+     Prefixes the flex-wrap property
+     ----------------------------------------
+     @access public
+     ----------------------------------------
+     @param {string} $val - value of the flex-wrap property
+  */
+ @mixin flex-wrap($val) {
+ 	@include prefix((flex-wrap: $val));
+ }
+
+
+
+
+
+ /*
+     Prefixes the justify-content property
+     ----------------------------------------
+     @access public
+     ----------------------------------------
+     @param {string} $val - value of the justify-content property
+  */
+ @mixin justify-content($val) {
+ 	@include prefix((justify-content: $val));
+ }
+
+
+
+
+
+ /*
+     Prefixes the align-items property
+     ----------------------------------------
+     @access public
+     ----------------------------------------
+     @param {string} $val - value of the align-items property
+  */
+ @mixin align-items($val) {
+ 	@include prefix((align-items: $val));
+ }
+
+
+
+
+
+ /*
+     Prefixes the align-content property
+     ----------------------------------------
+     @access public
+     ----------------------------------------
+     @param {string} $val - value of the align-content property
+  */
+ @mixin align-content($val){
+    @include prefix((align-content: $val));
+ }
+
+
+
+
+
+ /***************************\
+     #FLEX-ITEMS
+ \***************************/
+
+/*
+    Prefixes the order property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the order property
+ */
+ @mixin order($val) {
+    @include prefix((order: $val));
+ }
+
+
+
+
+
+ /*
+     Prefixes the flex-grow property
+     ----------------------------------------
+     @access public
+     ----------------------------------------
+     @param {string} $val - value of the flex-grow property
+  */
+ @mixin flex-grow($val) {
+    @include prefix((flex-grow: $val));
+ }
+
+
+
+
+
+ /*
+     Prefixes the flex-shrink property
+     ----------------------------------------
+     @access public
+     ----------------------------------------
+     @param {string} $val - value of the flex-shrink property
+  */
+ @mixin flex-shrink($val) {
+    @include prefix((flex-shrink: $val));
+ }
+
+
+
+
+
+ /*
+     Prefixes the flex-basis property
+     ----------------------------------------
+     @access public
+     ----------------------------------------
+     @param {string} $val - value of the flex-basis property
+  */
+ @mixin flex-basis($val){
+    @include prefix((flex-basis: $val));
+ }
+
+
+
+
+
+ /*
+     Prefixes the align-self property
+     ----------------------------------------
+     @access public
+     ----------------------------------------
+     @param {string} $val - value of the align-self property
+  */
+ @mixin align-self($val){
+    @include prefix((align-self: $val));
+ }
+
+
+
+
+
+ /***************************\
+     #FUNCTIONS
+ \***************************/
+
+ // Dynamic variables or variables interpolation are not yet supported by sass... :(
+ // @mixin add-breakpoint-variables(){
+ //     @each $label, $map in $breakpoints{
+ //         @if map-has-key($map, min){
+ //             $breakpoint-#{$label}-min: map-get-key($map, min) !global;
+ //         }
+ //         @if map-has-key($map, max){
+ //             $breakpoint-#{$label}-max: map-get-key($map, max) !global;
+ //         }
+ //     }
+ // }
+
+
+
+
+
+ /*
+    Includes width and margin of row oriented flex-item
+    ----------------------------------------
+    @access private
+    ----------------------------------------
+    @param {string} $label - name for gid breakpoint class
+    @param {int} $i - counter of columns
+    @param {boolean} $hasGutter - wether gutter should be included or not
+ */
+ @mixin _flex-row-item($label, $i, $hasGutter){
+    @if $hasGutter{
+        &.-#{$label}#{$i}{
+            width: calc( ((100% / #{$grid-column-count}) * #{$i}) - #{$grid-column-gutter} );
+            margin: calc(#{$grid-column-gutter}/2);
+        }
+    }@else{
+        &.-#{$label}#{$i}{
+            width: calc( ((100% / #{$grid-column-count}) * #{$i}));
+            margin: initial;
+        }
+    }
+ }
+
+
+
+
+
+ /*
+    Includes height and margin of column oriented flex-item
+    ----------------------------------------
+    @access private
+    ----------------------------------------
+    @param {string} $label - name for gid breakpoint class
+    @param {int} $i - counter of columns
+    @param {boolean} $hasGutter - wether gutter should be included or not
+ */
+ @mixin _flex-column-item($label, $i, $hasGutter){
+    @if $hasGutter{
+        &.-#{$label}#{$i}{
+            height: calc( ((100% / #{$grid-column-count}) * #{$i}) - #{$grid-column-gutter} );
+            margin: calc(#{$grid-column-gutter}/2);
+        }
+    }@else{
+        &.-#{$label}#{$i}{
+            height: calc( ((100% / #{$grid-column-count}) * #{$i}) );
+            margin: initial;
+        }
+    }
+ }
+
+
+
+
+
+ /*
+    Define layout classes using breakpoints and grid columns
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    1) Creates a block called flex
+    2) Creates an element of flex called item
+    3) Loops through every breakpoint defined in $breakpoints
+    4) If smartphone, loops from 1 to $grid-column-count creates classes <breakpoint><# of columns>
+    5) Else, loops from 1 to $grid-column-count creates classes <breakpoint><# of columns> inside media query
+    6) Creates flex variation called column
+    7) Creates flex variation called ng (no-gutter)
+    8) Creates flex variation called col-ng (column no-gutter)
+ */
+ @mixin add-grid(){
+
+    .flex{  /* [1] */
+        @include flex-direction(row);
+        &.reverse{ @include flex-direction(row-reverse);}
+
+        & > .flex__item{    /* [2] */
+
+            @each $label, $breakpoint in $grid-breakpoints{     /* [3] */
+                @if $breakpoint == '' {      /* [4] */
+                    @for $i from 1 to $grid-column-count + 1{
+                        @include _flex-row-item($label, $i, true);
+                    }
+                }@else{     /* [5] */
+                    @include respond-to($breakpoint){
+                        @for $i from 1 to $grid-column-count + 1{
+                            @include _flex-row-item($label, $i, true);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .fex--column{        /* [6] */
+        @include flex-direction(column);
+        &.reverse{ @include flex-direction(column-reverse);}
+
+        & > .flex__item{        /* [2] */
+
+            @each $label, $breakpoint in $grid-breakpoints{     /* [3] */
+                @if $breakpoint == '' {      /* [4] */
+                    @for $i from 1 to $grid-column-count + 1{
+                        @include _flex-column-item($label, $i, true);
+                    }
+                }@else{     /* [5] */
+                    @include respond-to($breakpoint){
+                        @for $i from 1 to $grid-column-count + 1{
+                            @include _flex-column-item($label, $i, true);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .flex--ng{       /* [7] */
+        & > .flex__item{        /* [2] */
+
+            @each $label, $breakpoint in $grid-breakpoints{     /* [3] */
+                @if $breakpoint == '' {      /* [4] */
+                    @for $i from 1 to $grid-column-count + 1{
+                        @include _flex-row-item($label, $i, false);
+                    }
+                }@else{     /* [5] */
+                    @include respond-to($breakpoint){
+                        @for $i from 1 to $grid-column-count + 1{
+                            @include _flex-row-item($label, $i, false);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .flex--col-ng{        /* [8]] */
+        &.reverse{ @include flex-direction(column-reverse);}
+
+        & > .flex__item{        /* [2] */
+
+            @each $label, $breakpoint in $grid-breakpoints{     /* [3] */
+                @if $breakpoint == '' {      /* [4] */
+                    @for $i from 1 to $grid-column-count + 1{
+                        @include _flex-column-item($label, $i, false);
+                    }
+                }@else{     /* [5] */
+                    @include respond-to($breakpoint){
+                        @for $i from 1 to $grid-column-count + 1{
+                            @include _flex-column-item($label, $i, false);
+                        }
+                    }
+                }
+            }
+        }
+    }
+ }
+
+
+
+
+
+ /*
+    Define width breakpoints for flex container
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+ */
+ @mixin add-container-breakpoints(){
+    @each $breakpoint, $width in $flex-container-max-widths{
+        @include respond-to($breakpoint){
+            .flex,
+            .flex--column,
+            .flex--ng,
+            .flex--col-ng{
+                max-width: $width;
+            }
+        }
+    }
+ }
+
+
+
+ /*
+    Creates classes for offset for every breakpoint
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+ */
+ @mixin add-offset-classes(){
+    @each $label, $breakpoint in $grid-breakpoints{
+        @if $breakpoint == '' {
+            @for $i from 1 to $grid-column-count + 1{
+                .offset-#{$label}#{$i}{
+                    margin-left: calc( (100%/#{$grid-column-count}) * #{$i});
+                }
+            }
+        }@else{
+            @include respond-to($breakpoint){
+                @for $i from 1 to $grid-column-count + 1{
+                    .offset-#{$label}#{$i}{
+                        margin-left: calc( (100%/#{$grid-column-count}) * #{$i});
+                    }
+                }
+            }
+        }
+    }
+ }

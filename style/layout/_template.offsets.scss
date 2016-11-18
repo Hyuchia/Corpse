@@ -1,0 +1,9 @@
+//------------------------------------------------------------------------------
+//  This file contains all styles related to offsets layout
+//------------------------------------------------------------------------------
+
+/*
+    This creates classes for column offset for every breakpoint
+    @output {class} .offset-<breakpoint abbreviation><number of columns>
+ */
+@include add-offset-classes();

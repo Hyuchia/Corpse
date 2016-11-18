@@ -1,0 +1,40 @@
+//------------------------------------------------------------------------------
+//  This file contains useful typography mixins
+//------------------------------------------------------------------------------
+//  add-weight-variables()...Creates varibales for font weights
+
+/*
+     Creates variables for font weights defined in $font-weights. If no value is provided the font-weight variables is skipped
+     ----------------------------------------
+     @access public
+     ----------------------------------------
+*/
+@mixin add-weight-variables() {
+    @if map-has-key($font-weights, thin) {
+        $font-weight-thin: map-get($font-weights, thin) !global;
+    }
+    @if map-has-key($font-weights, extralight) {
+        $font-weight-extralight: map-get($font-weights, extralight) !global;
+    }
+    @if map-has-key($font-weights, light) {
+        $font-weight-light: map-get($font-weights, light) !global;
+    }
+    @if map-has-key($font-weights, regular) {
+        $font-weight-regular: map-get($font-weights, regular) !global;
+    }
+    @if map-has-key($font-weights, medium) {
+        $font-weight-medium: map-get($font-weights, medium) !global;
+    }
+    @if map-has-key($font-weights, semibold) {
+        $font-weight-semibold: map-get($font-weights, semibold) !global;
+    }
+    @if map-has-key($font-weights, bold) {
+        $font-weight-bold: map-get($font-weights, bold) !global;
+    }
+    @if map-has-key($font-weights, extrabold) {
+        $font-weight-extrabold: map-get($font-weights, extrabold) !global;
+    }
+    @if map-has-key($font-weights, heavy) {
+        $font-weight-heavy: map-get($font-weights, heavy) !global;
+    }
+}

@@ -1,0 +1,169 @@
+//------------------------------------------------------------------------------
+//  This file contains all styles related to the table component
+//------------------------------------------------------------------------------
+
+/**
+ *    Reset default style of table and table's child elements
+ *    By default horizontal overflowing tables will scroll
+ *    Sets all columns width to the same size on breakpoint
+ */
+table{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: scroll;
+    margin: 1.5em auto;
+
+    caption{
+        display: block;
+        @extend .h-txt-small;
+        @extend .h-txt-uppercase;
+        margin-bottom: 0.5em;
+        font-weight: bold;
+    }
+
+    thead, tbody, tfoot{
+        width: 100%;
+        padding: 1em 0;
+        font-size: 85%;
+        text-align: left;
+
+        th, td{
+            padding-top: 0.5rem;
+            padding-right: 1rem;
+            padding-bottom: 0.5rem;
+            border-top: 1px solid $color-ui-grey;
+        }
+
+        th{
+            font-weight: bold;
+            max-width: 50vw;    // Defines maximum width of the column
+        }
+    }
+
+    thead th{
+        @extend .h-txt-truncate;
+        border-top: none;
+    }
+
+    @include respond-to($base-static-breakpoint){
+        thead, tbody, tfoot{
+            display: block;
+        }
+
+        tr{
+            display: flex;
+            width: auto;
+
+            th, td{
+                flex-basis: 100%;
+                min-width: 1em;
+            }
+        }
+    }
+}
+
+
+
+
+
+/**
+ *    Defines responsive table with "No more tables" approach
+ *    On smaller devices, table will collapse to resemble a list
+ *    @require attribute 'data-th' on every td tag to show it's header
+ *
+ *    1) Push table headers away of the viewport
+ *    2) Creates pseudo element with data header
+ *    3) Return to Responsive table on breakpoint
+ */
+table.table--list{
+    @extend table;
+    display: block;
+    overflow-x: auto;
+
+    thead,
+    tbody,
+    tfoot,
+    tr,
+    th, td{
+      display: block;
+    }
+
+    thead tr{   /* [1] */
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    td[data-th]{
+      position: relative;
+      padding-left: 50%;
+
+      &:first-child{
+          background-color: $color-ui-grey;
+      }
+    }
+
+    td[data-th]:before{      /* [2] */
+      content: attr(data-th);   /*DON'T FORGET ABOUT THIS IN THE HTML*/
+      position: absolute;
+      left: 6px;
+      font-weight: bold;
+    }
+
+    tfoot tr th,
+    tfoot tr td:not([data-th]){
+        display: none;
+    }
+
+    tfoot td[data-th]{
+        background-color: $color-ui-grey;
+    }
+
+    @include respond-to($base-static-breakpoint){       /* [3] */
+        display: block;
+
+        thead,
+        tbody,
+        tfoot,
+        tr{
+            width: 100%;
+            padding: 0;
+        }
+
+        tr{
+            display: flex;
+        }
+
+        th, td{
+          display: initial;
+        }
+
+        thead tr{
+          position: relative;
+          top: 0;
+          left: 0;
+        }
+
+        td[data-th]{
+          padding-left: 0;
+
+          &:first-child{
+              background-color: transparent;
+          }
+        }
+
+        td[data-th]:before{
+            display: none;
+        }
+
+        tfoot tr th,
+        tfoot tr td:not([data-th]){
+            display: initial;
+        }
+
+        tfoot td[data-th]{
+            background-color: transparent;
+        }
+    }
+}

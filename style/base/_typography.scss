@@ -1,0 +1,103 @@
+//------------------------------------------------------------------------------
+//  This file contains basic typography style for copy text
+//------------------------------------------------------------------------------
+//  1. Headers
+//  2. Body copy
+
+/***************************\
+    #HEADERS
+\***************************/
+
+/**
+ *    Out of the box all header tags have the same font size,
+ *    this results in them looking the same but still have their semantic
+ *    hierarchy
+ */
+
+h1, h2,
+h3, h4,
+h5, h6{
+    font-family: $font-family-primary , $font-family-secondary , sans-serif;
+    font-weight: bold;
+    color: inherit;
+    line-height: $line-height-header;
+    margin: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.875em;
+}
+
+
+
+
+/**
+ *    Assign hierarchical font sizes to each header with block class header
+ */
+
+@each $header, $size in $header-sizes{
+    #{$header}.header{
+        font-size: $size;
+    }
+}
+
+
+
+
+
+/**
+ *    Create header block with modifiers of font size and
+ *    subheader child element
+ */
+
+.header{
+
+    @each $header, $size in $header-sizes{
+        &.-#{$header}{
+            font-size: $size;
+        }
+    }
+
+    & > .header__subheader{
+        font-size: 55%;
+        color: $color-text-lightest;
+        font-weight: $font-weight-regular;
+    }
+}
+
+
+
+
+
+/**
+ *    Assign hierarchical font sizes to each "hero" header with
+ *    block class header--hero
+ */
+
+@each $header, $size in $heroheader-sizes{
+    #{$header}.header--hero{
+        font-size: $size;
+    }
+}
+
+
+
+
+
+/***************************\
+    #BODY COPY
+\***************************/
+
+p{
+    font-size: 100%;
+    line-height: $global-line-height;
+    max-width: 700px;
+    margin-bottom: 1em;
+}
+
+.paragraph--lead{
+    font-size: 112.5%;
+    line-height: 28px;
+}
+
+small, .caption{
+    font-size: 75%;
+}

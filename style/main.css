@@ -1,64 +1,2463 @@
-/** Space for all imported Fonts **/
+/**
+ *    1. ABSTRACTS
+ *    Variables........................Globally used variables
+ *    Mixins...........................Globally used mixins
+ *    Functions........................Globally used functions
+ */
+/*********************************\
+    #GENERIC
+\*********************************/
+/*********************************\
+    #COLOR
+    1. Text and background
+    2. Brand
+    3. UI
+    4. Social
+\*********************************/
+/* [1] */
+/* [2] */
+/* [3] */
+/* [4] */
+/*********************************\
+    #TYPOGRAPHY
+\*********************************/
+/*********************************\
+    #BREAKPOINTS
+\*********************************/
+/**
+ *    Defines common device breakpoints using a mobile-first approach
+ *    Each min-width is the previous category's max-width + 1px
+ *    @type Map
+ */
+/**
+ *    Defines key breakpoints for grid system
+ *    Key will be used for flex item size modifier class
+ *    Values refer to breakpoints map
+ *    @type Map
+ */
+/**
+ *    Base static breakpoint to use globally
+ *    Value refers to breakpoints map
+ *    @type String
+ */
+/*********************************\
+    #GRID
+\*********************************/
+/**
+ *    Defines the max width of flex container for given grid breakpoints
+ *    Should keep these breakpoints in sync with $grid-breakpoints
+ *    Key refers to breakpoint in $breakpoints
+ *    Value is calculated as 97% of category max-width
+ *    @type Map
+ */
+/*********************************\
+    #LIST
+\*********************************/
+/*********************************\
+    #BUTTON
+\*********************************/
+/**
+ *    Size of the 'border' of the buttons
+ *    In order to keep buttons of the same size this will be used for
+ *    an inset shadow instead of an actual border
+ *    @type {number}
+ */
+/**
+ *    Percentage of opacity that will be applied to normal buttons on hover
+ */
+/**
+ *    Border radius for your buttons
+ *    Different than -rounded modifier of buttons
+ */
+/*********************************\
+    #INPUT
+\*********************************/
+/**
+ *    Size of the 'border' of inputs
+ *    In order to keep inputs of the same size this will be used for
+ *    an inset shadow instead of an actual border
+ *    @type {number}
+ */
+/**
+ *    Border radius for your inputs
+ *    Different than -rounded modifier of input
+ */
+/*
+     Hande CSS vendor prefixes
+     ----------------------------
+     @access public
+     ----------------------------
+     @param {string} $property - property to prefix
+     @param {*} $value - value of property
+     @param {list} $vendors - list of vendors to prefix
+*/
+/**
+    Hande CSS vendor prefixes
+    -----------------------------
+    @access public
+    -----------------------------
+    @param {map} $map - map of property: value to prefix
+    @param {list} $vendors - list of vendors to prefix
+*/
+/**
+    Prefix box-sizing property
+    -----------------------------
+    @access public
+    -----------------------------
+    @param {string} $val - value for the box-sizing property
+*/
+/**
+ *    Handle media queries
+ *    -----------------------
+ *    @access public
+ *    -----------------------
+ *    @param {string} $name - name of the breakpoint to which respond to
+ */
+/*
+    Prefix the transition property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value for the transition property
+ */
+/*
+    Prefix transform property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value for the transform property
+ */
+/*
+    Prefix transform property for the translate value
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $x - value for x translation
+    @param {string} $y - value for y translation
+ */
+/*
+    Prefix transform property for the translate x value
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $x - value for x translation
+ */
+/*
+    Prefix transform property for the translate y value
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $y - value for y translation
+ */
+/*
+     Creates variables for font weights defined in $font-weights. If no value is provided the font-weight variables is skipped
+     ----------------------------------------
+     @access public
+     ----------------------------------------
+*/
+/***************************\
+    #FLEX-CONTAINER
+\***************************/
+/*
+    Prefixes the flex value
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+*/
+/*
+    Prefixes the flex-direction property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the flex-direction property
+ */
+/*
+    Prefixes the flex-wrap property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the flex-wrap property
+ */
+/*
+    Prefixes the justify-content property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the justify-content property
+ */
+/*
+    Prefixes the align-items property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the align-items property
+ */
+/*
+    Prefixes the align-content property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the align-content property
+ */
+/***************************\
+    #FLEX-ITEMS
+\***************************/
+/*
+    Prefixes the order property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the order property
+ */
+/*
+    Prefixes the flex-grow property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the flex-grow property
+ */
+/*
+    Prefixes the flex-shrink property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the flex-shrink property
+ */
+/*
+    Prefixes the flex-basis property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the flex-basis property
+ */
+/*
+    Prefixes the align-self property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value of the align-self property
+ */
+/***************************\
+    #FUNCTIONS
+\***************************/
+/*
+   Includes width and margin of row oriented flex-item
+   ----------------------------------------
+   @access private
+   ----------------------------------------
+   @param {string} $label - name for gid breakpoint class
+   @param {int} $i - counter of columns
+   @param {boolean} $hasGutter - wether gutter should be included or not
+*/
+/*
+   Includes height and margin of column oriented flex-item
+   ----------------------------------------
+   @access private
+   ----------------------------------------
+   @param {string} $label - name for gid breakpoint class
+   @param {int} $i - counter of columns
+   @param {boolean} $hasGutter - wether gutter should be included or not
+*/
+/*
+   Define layout classes using breakpoints and grid columns
+   ----------------------------------------
+   @access public
+   ----------------------------------------
+   1) Creates a block called flex
+   2) Creates an element of flex called item
+   3) Loops through every breakpoint defined in $breakpoints
+   4) If smartphone, loops from 1 to $grid-column-count creates classes <breakpoint><# of columns>
+   5) Else, loops from 1 to $grid-column-count creates classes <breakpoint><# of columns> inside media query
+   6) Creates flex variation called column
+   7) Creates flex variation called ng (no-gutter)
+   8) Creates flex variation called col-ng (column no-gutter)
+*/
+/*
+   Define width breakpoints for flex container
+   ----------------------------------------
+   @access public
+   ----------------------------------------
+*/
+/*
+   Creates classes for offset for every breakpoint
+   ----------------------------------------
+   @access public
+   ----------------------------------------
+*/
+/**
+ *    2. VENDORS
+ *    Normalize.css....................Style normalizations
+ */
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css";
+/**
+ *    3. BASE
+ *    Base.............................Standard, basic styles
+ *    Fonts............................Globally used fonts
+ *    Typography.......................Basic typography style for copy text
+ *    Helpers..........................Helper classes
+ */
+/**
+ *    Overrides the default text selection color for Gecko Browsers
+ *    1) Changes the selection color
+ *    2) Changes the selected text color
+ */
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700";
+::-moz-selection {
+  background: rgba(79, 214, 150, 0.35);
+  /* [1] */
+  color: rgba(0, 0, 0, 0.87);
+  /* [2] */ }
 
+/**
+ *    Overrides the default text selection color
+ *    1) Changes the selection color
+ *    2) Changes the selected text color
+ */
+::selection {
+  background: rgba(79, 214, 150, 0.35);
+  /* [1] */
+  color: rgba(0, 0, 0, 0.87);
+  /* [2] */ }
 
-/** Main Style goes here**/
+/**
+ *    Set up base styles in root element
+ */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 16px;
+  font-family: sans-serif;
+  overflow-x: hidden; }
 
-h1 {
-	font-weight: lighter;
-	font-family: 'Open Sans', sans-serif;
-}
+/**
+ *    Presets for body
+ *    1) Emphasize legibility over rendering speed and geometric precision
+ *    2) Smooth the font on the level of the pixel
+ *    3) Render text with grayscale antialiasing
+ */
+body {
+  text-rendering: optimizeLegibility;
+  /* [1] */
+  -webkit-font-smoothing: antialiased;
+  /* [2] */
+  -moz-osx-font-smoothing: grayscale;
+  /* [3] */
+  font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.87);
+  font: normal 100%/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
 
-small {
-	display: block;
-	font-size: 0.8rem;
-}
+/**
+ *    Make all elements from the DOM inherit from the parent box-sizing
+ *    Since `*` has a specificity of 0, it does not override the `html` value making all elements inheriting from the root box-sizing value
+ *    See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  -ms-box-sizing: inherit;
+  -o-box-sizing: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0; }
 
-/** Place here all Media Queries and it's styles.**/
+/**
+ *    Prevent overflowing content 
+ */
+img, embed,
+object, video {
+  max-width: 100%; }
 
-/** Default Style. Don't change. (320px) **/
-@media screen and  (max-width: 20em) {}
+/**
+ *    Native fonts of common devices
+ *    @type List
+ */
+/**
+ *    Main font used in project
+ *    @type String | List
+ */
+/**
+ *    Secondary font used in project
+ *    @type String | List
+ */
+/**
+ *    Creates font weight variables from predefined variable
+ */
+/***************************\
+    #HEADERS
+\***************************/
+/**
+ *    Out of the box all header tags have the same font size,
+ *    this results in them looking the same but still have their semantic
+ *    hierarchy
+ */
+h1, h2,
+h3, h4,
+h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, sans-serif;
+  font-weight: bold;
+  color: inherit;
+  line-height: 1;
+  margin: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.875em; }
 
-/** Extra Small Devices, Phones (480px) **/
-@media screen and (min-width : 30em) {
+/**
+ *    Assign hierarchical font sizes to each header with block class header
+ */
+h1.header {
+  font-size: 3em; }
 
-}
+h2.header {
+  font-size: 2.5em; }
 
-/** Medium Screens, Tablets (601px) **/
-@media screen and (min-width: 37.56255em) {
+h3.header {
+  font-size: 1.938em; }
 
-}
+h4.header {
+  font-size: 1.563em; }
 
-/** Medium Devices, Desktops (992px)**/
-@media screen and (min-width: 62em) {
+h5.header {
+  font-size: 1.25em; }
 
-}
+h6.header {
+  font-size: 1em; }
 
-/** HD Screen, Large Devices, Wide Screens (1200px) **/
-@media screen and (min-width: 75em) {
+/**
+ *    Create header block with modifiers of font size and
+ *    subheader child element
+ */
+.header.-h1 {
+  font-size: 3em; }
+.header.-h2 {
+  font-size: 2.5em; }
+.header.-h3 {
+  font-size: 1.938em; }
+.header.-h4 {
+  font-size: 1.563em; }
+.header.-h5 {
+  font-size: 1.25em; }
+.header.-h6 {
+  font-size: 1em; }
+.header > .header__subheader {
+  font-size: 55%;
+  color: rgba(0, 0, 0, 0.38);
+  font-weight: 400; }
 
-}
+/**
+ *    Assign hierarchical font sizes to each "hero" header with
+ *    block class header--hero
+ */
+h1.header--hero {
+  font-size: 4.5em; }
 
-/** Full HD Screen, Large Devices, Wide Screens (1920px) **/
-@media screen and (min-width: 120em) {
+h2.header--hero {
+  font-size: 4.125em; }
 
-}
+h3.header--hero {
+  font-size: 3.75em; }
 
-/** Retina Screen , Large Devices, Wide Screens(2560px) **/
-@media screen and (min-width: 160em) {
+/***************************\
+    #BODY COPY
+\***************************/
+p {
+  font-size: 100%;
+  line-height: 24px;
+  max-width: 700px;
+  margin-bottom: 1em; }
 
-}
+.paragraph--lead {
+  font-size: 112.5%;
+  line-height: 28px; }
 
-/** 4k Screens, Large Devices, Wide Screens (3840px) **/
-@media screen and (min-width: 240em) {
+small, .caption {
+  font-size: 75%; }
 
-}
+/***********************************************\
+    #CONTEXTUAL COLORS
+\***********************************************/
+/*
+    Set text color to predefined black
+ */
+.h-color-black {
+  color: rgba(0, 0, 0, 0.87); }
 
-/** 5k Screens, Large Devices, Wide Screens (5120px) **/
-@media screen and (min-width: 320em) {
+/*
+    Set text color to predefined black with opacity
+ */
+.h-color-black-l {
+  color: rgba(0, 0, 0, 0.54); }
 
-}
+/*
+    Set text color to predefined "disabled" black text
+ */
+.h-color-black-d {
+  color: rgba(0, 0, 0, 0.38); }
 
-/** CSS for Printing **/
-@media print {
+/*
+    Set text to predefined white
+ */
+.h-color-white {
+  color: white; }
 
-}
+/*
+    Set text to predefined white with opacity
+ */
+.h-color-white-l {
+  color: rgba(255, 255, 255, 0.7); }
+
+/*
+    Set text to predefined "disabled" white text
+ */
+.h-color-white-d {
+  color: rgba(255, 255, 255, 0.5); }
+
+/*
+    Set text to predefined brand primary color
+ */
+.h-color-primary {
+  color: #0069FF; }
+
+/*
+    Set text to predefined brand secondary color
+ */
+.h-color-secondary {
+  color: #4FD696; }
+
+/*
+    Set text to predefined ui success color
+ */
+.h-color-success {
+  color: #13ce66; }
+
+/*
+    Set text to predefined ui warning color
+ */
+.h-color-warning {
+  color: #FFC12D; }
+
+/*
+    Set text to predefined ui error color
+ */
+.h-color-error {
+  color: #ff4949; }
+
+/***********************************************\
+    #CONTEXTUAL BACKGROUNDS
+\***********************************************/
+/*
+    Set background color to predefined ui black
+ */
+.h-bkg-black {
+  background-color: #000000; }
+
+/*
+    Set background color to predefined ui background white
+ */
+.h-bkg-white {
+  background-color: #ffffff; }
+
+/*
+    Set background color to predefined brand primary color
+ */
+.h-bkg-default {
+  background-color: #F2F4F8; }
+
+/*
+    Set background color to predefined brand primary color
+ */
+.h-bkg-primary {
+  background-color: #0069FF; }
+
+/*
+    Set background color to predefined brand secondary color
+ */
+.h-bkg-secondary {
+  background-color: #4FD696; }
+
+/***********************************************\
+    #TEXT MANIPULATION
+\***********************************************/
+/*
+    Set text to uppercase
+ */
+.h-txt-uppercase, table caption, table.table--list caption {
+  text-transform: uppercase; }
+
+/*
+    Set text to lowercase
+ */
+.h-txt-lowercase {
+  text-transform: lowercase; }
+
+/*
+    Set text to bold
+ */
+.h-txt-bold {
+  font-weight: bold; }
+
+/*
+    Set text to italics
+ */
+.h-txt-italic {
+  font-style: italic; }
+
+/*
+    Underline text
+ */
+.h-txt-underline {
+  text-decoration: underline; }
+
+/*
+    Set text size to small
+ */
+.h-txt-small, table caption, table.table--list caption {
+  font-size: 75%; }
+
+/*
+    Truncate text with ellipsis
+ */
+.h-txt-truncate, table thead th, table.table--list thead th {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+/*
+    Truncate multiline text with ellipsis
+    @require $block-truncate-lines variable
+ */
+.h-txt-truncate-multiline {
+  display: block;
+  display: -webkit-box;
+  height: calc($block-truncate-lines * $block-truncate-line-height + 1) px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+/***********************************************\
+    #ALIGNMENT CLASSESS
+\***********************************************/
+/*
+    Align text to left
+ */
+.h-align-left {
+  text-align: left; }
+
+/*
+    Align text to center
+ */
+.h-align-center {
+  text-align: center; }
+
+/*
+    Align text to right
+ */
+.h-align-right {
+  text-align: right; }
+
+/*
+    Vertically align element to center
+ */
+.h-valign-center {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+/*
+    Horizontally align block element to center
+ */
+.h-align-block-center {
+  margin-left: auto;
+  margin-right: auto; }
+
+/***********************************************\
+    #DISPLAY AND VISIBILITY
+\***********************************************/
+/*
+    Display element as inline
+ */
+.h-display-inline {
+  display: inline; }
+
+/*
+    Display element as block
+ */
+.h-display-block {
+  display: block; }
+
+/*
+    Display element as inline-block
+ */
+.h-display-ib {
+  display: inline-block; }
+
+/*
+    Show element on small devices
+ */
+.h-visible {
+  visibility: visible; }
+
+/*
+    Show element on tablet-size devices
+ */
+@media screen and (min-width: 601px) {
+  .h-visible-tab {
+    visibility: visible; } }
+
+/*
+    Show element on laptop devices
+ */
+@media screen and (min-width: 769px) {
+  .h-visible-lap {
+    visibility: visible; } }
+
+/*
+    Show element on desktop devices
+ */
+@media screen and (min-width: 1601px) {
+  .h-visible-desk {
+    visibility: visible; } }
+
+/*
+    Make element invisible on small devices
+ */
+.h-invisible {
+  visibility: hidden; }
+
+/*
+    Make element invisible on tablet-size devices
+ */
+@media screen and (min-width: 601px) {
+  .h-invisible-tab {
+    visibility: hidden; } }
+
+/*
+    Make element invisible on laptop devices
+ */
+@media screen and (min-width: 769px) {
+  .h-invisible-lap {
+    visibility: hidden; } }
+
+/*
+    Make element invisible on desktop devices
+ */
+@media screen and (min-width: 1601px) {
+  .h-invisible-desk {
+    visibility: hidden; } }
+
+/*
+    Hide element on small devices
+ */
+.h-hide {
+  display: none; }
+
+/*
+    Hide element on tablet-size devices
+ */
+@media screen and (min-width: 601px) {
+  .h-hide-tab {
+    display: none; } }
+
+/*
+    Hide element on laptop devices
+ */
+@media screen and (min-width: 769px) {
+  .h-hide-lap {
+    display: none; } }
+
+/*
+    Hide element on desktop devices
+ */
+@media screen and (min-width: 1601px) {
+  .h-hide-desk {
+    display: none; } }
+
+/**
+ *    4. COMPONENTS
+ *    - Atoms
+ *      Link...........................Styles related to link component
+ *      List...........................Styles related to list component
+ *      Table..........................Styles related to table component
+ *      Code...........................Styles related to code component
+ *      Button.........................Styles related to button component
+ *      Input..........................Styles related to input component
+ *      Image..........................Styles related to image component
+ *
+ *    - Molecules
+ *      Form...........................Styles related to form molecule
+ *      Media..........................Styles related to media molecule
+ *
+ *    -Organisms
+ *      Header.........................Styles related to the header organism
+ *      Footer.........................Styles related to the footer organism
+ */
+/*
+    Overrides anchor default style
+ */
+a, a.link, a.link--underlined, a.link--awesome {
+  -webkit-transition: all 0.2s ease-in 0s;
+  -moz-transition: all 0.2s ease-in 0s;
+  -ms-transition: all 0.2s ease-in 0s;
+  -o-transition: all 0.2s ease-in 0s;
+  transition: all 0.2s ease-in 0s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  font-weight: inherit; }
+
+/*
+    Creates a link element
+    @extend 'a' element
+ */
+a.link {
+  -webkit-transition: color 0.2s ease-in;
+  -moz-transition: color 0.2s ease-in;
+  -ms-transition: color 0.2s ease-in;
+  -o-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+  color: rgba(0, 0, 0, 0.87); }
+  a.link:hover {
+    color: rgba(0, 0, 0, 0.54); }
+  a.link.-color-reversed {
+    color: rgba(0, 0, 0, 0.54); }
+    a.link.-color-reversed:hover {
+      color: rgba(0, 0, 0, 0.87); }
+  a.link.-color-white {
+    color: white; }
+    a.link.-color-white:hover {
+      color: rgba(255, 255, 255, 0.7); }
+  a.link.-color-white-reversed {
+    color: rgba(255, 255, 255, 0.7); }
+    a.link.-color-white-reversed:hover {
+      color: white; }
+  a.link.-color-primary {
+    color: #0069FF; }
+    a.link.-color-primary:hover {
+      color: inherit; }
+
+/*
+    Creates a variation of link element
+    Defines styles for underlined links
+    @extend 'a' element
+ */
+a.link--underlined {
+  -webkit-transition: color 0.2s ease-in;
+  -moz-transition: color 0.2s ease-in;
+  -ms-transition: color 0.2s ease-in;
+  -o-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+  display: inline-block;
+  position: relative;
+  color: rgba(0, 0, 0, 0.87); }
+  a.link--underlined:before {
+    -webkit-transition: color 0.2s ease-in;
+    -moz-transition: color 0.2s ease-in;
+    -ms-transition: color 0.2s ease-in;
+    -o-transition: color 0.2s ease-in;
+    transition: color 0.2s ease-in;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.87); }
+  a.link--underlined:hover {
+    color: rgba(0, 0, 0, 0.54); }
+    a.link--underlined:hover:before {
+      background-color: rgba(0, 0, 0, 0.54); }
+  a.link--underlined.-color-reversed {
+    color: rgba(0, 0, 0, 0.54); }
+    a.link--underlined.-color-reversed:before {
+      background-color: rgba(0, 0, 0, 0.54); }
+    a.link--underlined.-color-reversed:hover {
+      color: rgba(0, 0, 0, 0.87); }
+      a.link--underlined.-color-reversed:hover:before {
+        background-color: rgba(0, 0, 0, 0.87); }
+  a.link--underlined.-color-white {
+    color: white; }
+    a.link--underlined.-color-white:before {
+      background-color: white; }
+    a.link--underlined.-color-white:hover {
+      color: rgba(255, 255, 255, 0.7); }
+      a.link--underlined.-color-white:hover:before {
+        background-color: rgba(255, 255, 255, 0.7); }
+  a.link--underlined.-color-white-reversed {
+    color: rgba(255, 255, 255, 0.7); }
+    a.link--underlined.-color-white-reversed:before {
+      background-color: rgba(255, 255, 255, 0.7); }
+    a.link--underlined.-color-white-reversed:hover {
+      color: white; }
+      a.link--underlined.-color-white-reversed:hover:before {
+        background-color: white; }
+  a.link--underlined.-color-primary {
+    color: #0069FF; }
+    a.link--underlined.-color-primary:before {
+      background-color: #0069FF; }
+    a.link--underlined.-color-primary:hover {
+      color: inherit; }
+      a.link--underlined.-color-primary:hover:before {
+        background-color: rgba(0, 0, 0, 0.87); }
+
+/*
+    Creates a variation of link element
+    Defines styles for awesome links
+    @extend a
+ */
+a.link--awesome {
+  -webkit-transition: color 0.2s ease-in;
+  -moz-transition: color 0.2s ease-in;
+  -ms-transition: color 0.2s ease-in;
+  -o-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+  display: inline-block;
+  position: relative;
+  color: rgba(0, 0, 0, 0.87); }
+  a.link--awesome:before {
+    -webkit-transition: width 0.2s ease-in;
+    -moz-transition: width 0.2s ease-in;
+    -ms-transition: width 0.2s ease-in;
+    -o-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.87); }
+  a.link--awesome:hover:before {
+    width: 100%; }
+  a.link--awesome.-color-white {
+    color: white; }
+    a.link--awesome.-color-white:before {
+      background-color: white; }
+  a.link--awesome.-color-primary {
+    color: inherit; }
+    a.link--awesome.-color-primary:before {
+      background-color: #0069FF; }
+    a.link--awesome.-color-primary:hover {
+      color: #0069FF; }
+
+/**
+  *    Presets for lists default style
+  *    Sets indentation for list items and nested lists
+  */
+ul, ol, dl {
+  list-style-position: inside;
+  list-style-type: initial;
+  /*
+      Removes list item marker
+   */
+  /*
+      Sets indentation for nested lists
+   */
+  /*
+      Creates modifier for showing inline list items
+      Useful for navigation
+   */ }
+  ul.list.-type-none, ol.list.-type-none, dl.list.-type-none {
+    list-style-type: none; }
+  ul li, ul dt, ul dd, ol li, ol dt, ol dd, dl li, dl dt, dl dd {
+    padding-left: 5px; }
+  ul ul, ul ol, ul dl, ol ul, ol ol, ol dl, dl ul, dl ol, dl dl {
+    padding-left: 15px;
+    margin-top: 5px; }
+  ul.list.-display-inline li, ol.list.-display-inline li, dl.list.-display-inline li {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 0;
+    margin: 0 5px; }
+    ul.list.-display-inline li:first-child, ol.list.-display-inline li:first-child, dl.list.-display-inline li:first-child {
+      margin-left: 0; }
+    ul.list.-display-inline li:last-child, ol.list.-display-inline li:last-child, dl.list.-display-inline li:last-child {
+      margin-right: 0; }
+
+/**
+ *    Defines style and three levels of indentation for unordered lists
+ */
+ul {
+  list-style-type: disc; }
+  ul > ul {
+    list-style-type: circle; }
+    ul > ul > ul {
+      list-style-type: square; }
+
+/**
+ *    Defines style and three levels of indentation for ordered lists
+ */
+ol {
+  list-style-type: decimal;
+  /*
+      Creates modifier to use list item decimal mark
+   */
+  /*
+      Creates modifier to use list item uppercase letters mark
+   */
+  /*
+      Creates modifier to use list item lowercase letters mark
+   */ }
+  ol.list.-type-numbers {
+    list-style-type: decimal; }
+  ol.list.-type-uppercase {
+    list-style-type: upper-latin; }
+  ol.list.-type-lowercase {
+    list-style-type: lower-latin; }
+  ol > ol {
+    list-style-type: lower-latin; }
+    ol > ol > ol {
+      list-style-type: square; }
+
+/**
+ *    Defines style and three levels of indentation for definition lists
+ */
+dl {
+  list-style-type: none;
+  /*
+      Creates modifier to show inline list items when predefined breakpoint is reached.
+   */ }
+  dl dt {
+    font-weight: 500; }
+    dl dt:not(:first-child) {
+      margin-top: 10px; }
+  dl dd {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.54); }
+  @media screen and (min-width: 769px) {
+    dl.list.-display-inline {
+      width: 100%;
+      height: auto;
+      margin: auto;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      -o-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-justify-content: flex-start;
+      -moz-justify-content: flex-start;
+      -ms-justify-content: flex-start;
+      -o-justify-content: flex-start;
+      justify-content: flex-start;
+      -webkit-align-items: stretch;
+      -moz-align-items: stretch;
+      -ms-align-items: stretch;
+      -o-align-items: stretch;
+      align-items: stretch;
+      -webkit-align-content: stretch;
+      -moz-align-content: stretch;
+      -ms-align-content: stretch;
+      -o-align-content: stretch;
+      align-content: stretch;
+      -webkit-flex-direction: row;
+      -moz-flex-direction: row;
+      -ms-flex-direction: row;
+      -o-flex-direction: row;
+      flex-direction: row; }
+      dl.list.-display-inline dt {
+        width: 25%;
+        text-align: right;
+        padding: 0 15px;
+        margin-top: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      dl.list.-display-inline dd {
+        width: 75%;
+        padding: 0 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; } }
+
+/**
+ *    Defines styles for costume list item marker
+ */
+li.list__item.-type-brand-1,
+li.list__item.-type-brand-2 {
+  list-style-type: none; }
+  li.list__item.-type-brand-1:before,
+  li.list__item.-type-brand-2:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    height: 16px;
+    width: 16px; }
+
+/**
+ *    Sets costume marker for modifier 1
+ */
+li.list__item.-type-brand-1:before {
+  background: url("../brand/list-style-image-1.svg") 50% 50% no-repeat;
+  background-size: cover; }
+
+/**
+ *    Sets costume marker for modifier 2
+ */
+li.list__item.-type-brand-2:before {
+  background: url("../brand/list-style-image-2.svg") 50% 50% no-repeat;
+  background-size: cover; }
+
+/**
+ *    Resets default style of button tag
+ */
+button, .btn, .btn--ghost {
+  -webkit-transition: background-color 0.2s ease-in;
+  -moz-transition: background-color 0.2s ease-in;
+  -ms-transition: background-color 0.2s ease-in;
+  -o-transition: background-color 0.2s ease-in;
+  transition: background-color 0.2s ease-in;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: #F5F5F5;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.54);
+  border-radius: 1px; }
+  button:hover, .btn:hover, .btn--ghost:hover, button:focus, .btn:focus, .btn--ghost:focus {
+    background-color: #E8E8E8; }
+  button span.btn__icon, .btn span.btn__icon, .btn--ghost span.btn__icon,
+  button i.btn__icon,
+  .btn i.btn__icon,
+  .btn--ghost i.btn__icon {
+    margin-left: 5px;
+    margin-right: 5px; }
+
+/**
+ *    Defines styles for btn element
+ */
+.btn.-rounded {
+  border-radius: 20em; }
+.btn.-medium {
+  padding: 0.7rem 1.7rem; }
+.btn.-large {
+  padding: 1rem 2.3rem; }
+.btn.is-disabled, .btn[disabled="true"], .btn[disabled] {
+  cursor: not-allowed;
+  background-color: #F5F5F5;
+  color: rgba(0, 0, 0, 0.38);
+  box-shadow: inset 0 0 0 1.5px rgba(0, 0, 0, 0.38); }
+.btn.-bkg-black {
+  background-color: #000000;
+  color: white; }
+  .btn.-bkg-black:hover, .btn.-bkg-black:focus {
+    background-color: #1f1f1f; }
+.btn.-bkg-white {
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.87); }
+  .btn.-bkg-white:hover, .btn.-bkg-white:focus {
+    background-color: #e0e0e0; }
+.btn.-bkg-success {
+  background-color: #13ce66;
+  color: white; }
+  .btn.-bkg-success:hover, .btn.-bkg-success:focus {
+    background-color: #0f9f4f; }
+.btn.-bkg-warning {
+  background-color: #FFC12D;
+  color: white; }
+  .btn.-bkg-warning:hover, .btn.-bkg-warning:focus {
+    background-color: #f9af00; }
+.btn.-bkg-error {
+  background-color: #ff4949;
+  color: white; }
+  .btn.-bkg-error:hover, .btn.-bkg-error:focus {
+    background-color: #ff1616; }
+.btn.-bkg-primary {
+  background-color: #0069FF;
+  color: white; }
+  .btn.-bkg-primary:hover, .btn.-bkg-primary:focus {
+    background-color: #0054cc; }
+.btn.-bkg-secondary {
+  background-color: #4FD696;
+  color: white; }
+  .btn.-bkg-secondary:hover, .btn.-bkg-secondary:focus {
+    background-color: #2ec47d; }
+.btn.-twitter {
+  background-color: #168de9;
+  color: white; }
+  .btn.-twitter:hover, .btn.-twitter:focus {
+    background-color: #1271ba; }
+.btn.-facebook {
+  background-color: #3d5a98;
+  color: white; }
+  .btn.-facebook:hover, .btn.-facebook:focus {
+    background-color: #2e4474; }
+.btn.-google {
+  background-color: #dd4b39;
+  color: white; }
+  .btn.-google:hover, .btn.-google:focus {
+    background-color: #c23321; }
+.btn.-youtube {
+  background-color: #bb0000;
+  color: white; }
+  .btn.-youtube:hover, .btn.-youtube:focus {
+    background-color: #880000; }
+.btn.-linkedin {
+  background-color: #007bb5;
+  color: white; }
+  .btn.-linkedin:hover, .btn.-linkedin:focus {
+    background-color: #005882; }
+.btn.-pinterest {
+  background-color: #cb2027;
+  color: white; }
+  .btn.-pinterest:hover, .btn.-pinterest:focus {
+    background-color: #9f191f; }
+.btn.-dribbble {
+  background-color: #ea4c89;
+  color: white; }
+  .btn.-dribbble:hover, .btn.-dribbble:focus {
+    background-color: #e51e6b; }
+.btn.-behance {
+  background-color: #1769ff;
+  color: white; }
+  .btn.-behance:hover, .btn.-behance:focus {
+    background-color: #0050e3; }
+
+/**
+ *    Defines styles for ghost variation of btn element
+ */
+.btn--ghost {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1.5px #E8E8E8;
+  color: rgba(0, 0, 0, 0.54); }
+  .btn--ghost:hover, .btn--ghost:focus {
+    background-color: #E8E8E8; }
+  .btn--ghost.-rounded {
+    border-radius: 20em; }
+  .btn--ghost.-medium {
+    padding: 0.7rem 1.7rem; }
+  .btn--ghost.-large {
+    padding: 1rem 2.3rem; }
+  .btn--ghost.is-disabled, .btn--ghost[disabled="true"], .btn--ghost[disabled] {
+    cursor: not-allowed;
+    background-color: #F5F5F5;
+    color: rgba(0, 0, 0, 0.38);
+    box-shadow: inset 0 0 0 1.5px rgba(0, 0, 0, 0.38); }
+  .btn--ghost.-bkg-black {
+    box-shadow: inset 0 0 0 1.5px #000000;
+    color: rgba(0, 0, 0, 0.87); }
+    .btn--ghost.-bkg-black:hover, .btn--ghost.-bkg-black:focus {
+      background-color: #000000;
+      color: white; }
+  .btn--ghost.-bkg-white {
+    box-shadow: inset 0 0 0 1.5px #ffffff;
+    color: white; }
+    .btn--ghost.-bkg-white:hover, .btn--ghost.-bkg-white:focus {
+      background-color: #ffffff;
+      color: rgba(0, 0, 0, 0.87); }
+  .btn--ghost.-bkg-success {
+    box-shadow: inset 0 0 0 1.5px #13ce66;
+    color: #13ce66; }
+    .btn--ghost.-bkg-success:hover, .btn--ghost.-bkg-success:focus {
+      background-color: #13ce66;
+      color: white; }
+  .btn--ghost.-bkg-warning {
+    box-shadow: inset 0 0 0 1.5px #FFC12D;
+    color: #FFC12D; }
+    .btn--ghost.-bkg-warning:hover, .btn--ghost.-bkg-warning:focus {
+      background-color: #FFC12D;
+      color: white; }
+  .btn--ghost.-bkg-error {
+    box-shadow: inset 0 0 0 1.5px #ff4949;
+    color: #ff4949; }
+    .btn--ghost.-bkg-error:hover, .btn--ghost.-bkg-error:focus {
+      background-color: #ff4949;
+      color: white; }
+  .btn--ghost.-bkg-primary {
+    box-shadow: inset 0 0 0 1.5px #0069FF;
+    color: #0069FF; }
+    .btn--ghost.-bkg-primary:hover, .btn--ghost.-bkg-primary:focus {
+      background-color: #0069FF;
+      color: white; }
+  .btn--ghost.-bkg-secondary {
+    box-shadow: inset 0 0 0 1.5px #4FD696;
+    color: #4FD696; }
+    .btn--ghost.-bkg-secondary:hover, .btn--ghost.-bkg-secondary:focus {
+      background-color: #4FD696;
+      color: white; }
+  .btn--ghost.-twitter {
+    box-shadow: inset 0 0 0 1.5px #168de9;
+    color: #168de9; }
+    .btn--ghost.-twitter:hover, .btn--ghost.-twitter:focus {
+      background-color: #168de9;
+      color: white; }
+  .btn--ghost.-facebook {
+    box-shadow: inset 0 0 0 1.5px #3d5a98;
+    color: #3d5a98; }
+    .btn--ghost.-facebook:hover, .btn--ghost.-facebook:focus {
+      background-color: #3d5a98;
+      color: white; }
+  .btn--ghost.-google {
+    box-shadow: inset 0 0 0 1.5px #dd4b39;
+    color: #dd4b39; }
+    .btn--ghost.-google:hover, .btn--ghost.-google:focus {
+      background-color: #dd4b39;
+      color: white; }
+  .btn--ghost.-youtube {
+    box-shadow: inset 0 0 0 1.5px #bb0000;
+    color: #bb0000; }
+    .btn--ghost.-youtube:hover, .btn--ghost.-youtube:focus {
+      background-color: #bb0000;
+      color: white; }
+  .btn--ghost.-linkedin {
+    box-shadow: inset 0 0 0 1.5px #007bb5;
+    color: #007bb5; }
+    .btn--ghost.-linkedin:hover, .btn--ghost.-linkedin:focus {
+      background-color: #007bb5;
+      color: white; }
+  .btn--ghost.-pinterest {
+    box-shadow: inset 0 0 0 1.5px #cb2027;
+    color: #cb2027; }
+    .btn--ghost.-pinterest:hover, .btn--ghost.-pinterest:focus {
+      background-color: #cb2027;
+      color: white; }
+  .btn--ghost.-dribbble {
+    box-shadow: inset 0 0 0 1.5px #ea4c89;
+    color: #ea4c89; }
+    .btn--ghost.-dribbble:hover, .btn--ghost.-dribbble:focus {
+      background-color: #ea4c89;
+      color: white; }
+  .btn--ghost.-behance {
+    box-shadow: inset 0 0 0 1.5px #1769ff;
+    color: #1769ff; }
+    .btn--ghost.-behance:hover, .btn--ghost.-behance:focus {
+      background-color: #1769ff;
+      color: white; }
+
+/**
+ *    Overrides default color of input placeholder text
+ */
+::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.38); }
+
+::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.38); }
+
+:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.38); }
+
+input:-moz-placeholder {
+  color: rgba(0, 0, 0, 0.38); }
+
+.input--ghost.-bkg-white::-webkit-input-placeholder {
+  color: white; }
+
+.input--ghost.-bkg-white::-moz-placeholder {
+  color: white; }
+
+.input--ghost.-bkg-white:-ms-input-placeholder {
+  color: white; }
+
+.input--ghost.-bkg-white:-moz-placeholder {
+  color: white; }
+
+/**
+ *    Resets default style of input element
+ */
+input, input.input {
+  -webkit-transition: background-color 0.2s ease-in;
+  -moz-transition: background-color 0.2s ease-in;
+  -ms-transition: background-color 0.2s ease-in;
+  -o-transition: background-color 0.2s ease-in;
+  transition: background-color 0.2s ease-in;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: #F5F5F5;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.54);
+  border-radius: 1px; }
+  input:hover, input:focus {
+    background-color: #E8E8E8; }
+  input span.input__icon,
+  input i.input__icon {
+    margin-left: 5px;
+    margin-right: 5px; }
+
+input.input.-rounded {
+  border-radius: 20em; }
+input.input.-medium {
+  padding: 0.7rem 1.7rem; }
+input.input.-large {
+  padding: 1rem 2.3rem; }
+input.input.is-disabled, input.input[disabled="true"], input.input[disabled] {
+  cursor: not-allowed;
+  background-color: #F5F5F5;
+  color: rgba(0, 0, 0, 0.38);
+  box-shadow: inset 0 0 0 1.5px #E8E8E8; }
+
+/**
+ *    Reset default style of table and table's child elements
+ *    By default horizontal overflowing tables will scroll
+ *    Sets all columns width to the same size on breakpoint
+ */
+table, table.table--list {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: scroll;
+  margin: 1.5em auto; }
+  table caption, table.table--list caption {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold; }
+  table thead, table.table--list thead, table tbody, table.table--list tbody, table tfoot, table.table--list tfoot {
+    width: 100%;
+    padding: 1em 0;
+    font-size: 85%;
+    text-align: left; }
+    table thead th, table.table--list thead th, table thead td, table.table--list thead td, table tbody th, table.table--list tbody th, table tbody td, table.table--list tbody td, table tfoot th, table.table--list tfoot th, table tfoot td, table.table--list tfoot td {
+      padding-top: 0.5rem;
+      padding-right: 1rem;
+      padding-bottom: 0.5rem;
+      border-top: 1px solid #E8E8E8; }
+    table thead th, table.table--list thead th, table tbody th, table.table--list tbody th, table tfoot th, table.table--list tfoot th {
+      font-weight: bold;
+      max-width: 50vw; }
+  table thead th, table.table--list thead th {
+    border-top: none; }
+  @media screen and (min-width: 769px) {
+    table thead, table.table--list thead, table tbody, table.table--list tbody, table tfoot, table.table--list tfoot {
+      display: block; }
+    table tr, table.table--list tr {
+      display: flex;
+      width: auto; }
+      table tr th, table.table--list tr th, table tr td, table.table--list tr td {
+        flex-basis: 100%;
+        min-width: 1em; } }
+
+/**
+ *    Defines responsive table with "No more tables" approach
+ *    On smaller devices, table will collapse to resemble a list
+ *    @require attribute 'data-th' on every td tag to show it's header
+ *
+ *    1) Push table headers away of the viewport
+ *    2) Creates pseudo element with data header
+ *    3) Return to Responsive table on breakpoint
+ */
+table.table--list {
+  display: block;
+  overflow-x: auto; }
+  table.table--list thead,
+  table.table--list tbody,
+  table.table--list tfoot,
+  table.table--list tr,
+  table.table--list th, table.table--list td {
+    display: block; }
+  table.table--list thead tr {
+    /* [1] */
+    position: absolute;
+    top: -9999px;
+    left: -9999px; }
+  table.table--list td[data-th] {
+    position: relative;
+    padding-left: 50%; }
+    table.table--list td[data-th]:first-child {
+      background-color: #E8E8E8; }
+  table.table--list td[data-th]:before {
+    /* [2] */
+    content: attr(data-th);
+    /*DON'T FORGET ABOUT THIS IN THE HTML*/
+    position: absolute;
+    left: 6px;
+    font-weight: bold; }
+  table.table--list tfoot tr th,
+  table.table--list tfoot tr td:not([data-th]) {
+    display: none; }
+  table.table--list tfoot td[data-th] {
+    background-color: #E8E8E8; }
+  @media screen and (min-width: 769px) {
+    table.table--list {
+      /* [3] */
+      display: block; }
+      table.table--list thead,
+      table.table--list tbody,
+      table.table--list tfoot,
+      table.table--list tr {
+        width: 100%;
+        padding: 0; }
+      table.table--list tr {
+        display: flex; }
+      table.table--list th, table.table--list td {
+        display: initial; }
+      table.table--list thead tr {
+        position: relative;
+        top: 0;
+        left: 0; }
+      table.table--list td[data-th] {
+        padding-left: 0; }
+        table.table--list td[data-th]:first-child {
+          background-color: transparent; }
+      table.table--list td[data-th]:before {
+        display: none; }
+      table.table--list tfoot tr th,
+      table.table--list tfoot tr td:not([data-th]) {
+        display: initial; }
+      table.table--list tfoot td[data-th] {
+        background-color: transparent; } }
+
+/**
+ *    5. LAYOUT
+ *    - Templates
+ *      Grid............................Styles related to the grid
+ *      Offsets.........................Styles related to offset classes
+ *      Off-canvas......................Styles related to off-canvas navigation
+ */
+/*
+    This creates our flexbox based grid system
+ */
+.flex {
+  /* [1] */
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row; }
+  .flex.reverse {
+    -webkit-flex-direction: row-reverse;
+    -moz-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    -o-flex-direction: row-reverse;
+    flex-direction: row-reverse; }
+  .flex > .flex__item {
+    /* [2] */
+    /* [3] */
+    /* [4] */
+    /* [3] */
+    /* [5] */
+    /* [3] */
+    /* [5] */ }
+    .flex > .flex__item.-mob1 {
+      width: calc( ((100% / 12) * 1) - 1.5em );
+      margin: calc(1.5em/2); }
+    .flex > .flex__item.-mob2 {
+      width: calc( ((100% / 12) * 2) - 1.5em );
+      margin: calc(1.5em/2); }
+    .flex > .flex__item.-mob3 {
+      width: calc( ((100% / 12) * 3) - 1.5em );
+      margin: calc(1.5em/2); }
+    .flex > .flex__item.-mob4 {
+      width: calc( ((100% / 12) * 4) - 1.5em );
+      margin: calc(1.5em/2); }
+    .flex > .flex__item.-mob5 {
+      width: calc( ((100% / 12) * 5) - 1.5em );
+      margin: calc(1.5em/2); }
+    .flex > .flex__item.-mob6 {
+      width: calc( ((100% / 12) * 6) - 1.5em );
+      margin: calc(1.5em/2); }
+    .flex > .flex__item.-mob7 {
+      width: calc( ((100% / 12) * 7) - 1.5em );
+      margin: calc(1.5em/2); }
+    .flex > .flex__item.-mob8 {
+      width: calc( ((100% / 12) * 8) - 1.5em );
+      margin: calc(1.5em/2); }
+    .flex > .flex__item.-mob9 {
+      width: calc( ((100% / 12) * 9) - 1.5em );
+      margin: calc(1.5em/2); }
+    .flex > .flex__item.-mob10 {
+      width: calc( ((100% / 12) * 10) - 1.5em );
+      margin: calc(1.5em/2); }
+    .flex > .flex__item.-mob11 {
+      width: calc( ((100% / 12) * 11) - 1.5em );
+      margin: calc(1.5em/2); }
+    .flex > .flex__item.-mob12 {
+      width: calc( ((100% / 12) * 12) - 1.5em );
+      margin: calc(1.5em/2); }
+    @media screen and (min-width: 601px) {
+      .flex > .flex__item.-tab1 {
+        width: calc( ((100% / 12) * 1) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-tab2 {
+        width: calc( ((100% / 12) * 2) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-tab3 {
+        width: calc( ((100% / 12) * 3) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-tab4 {
+        width: calc( ((100% / 12) * 4) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-tab5 {
+        width: calc( ((100% / 12) * 5) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-tab6 {
+        width: calc( ((100% / 12) * 6) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-tab7 {
+        width: calc( ((100% / 12) * 7) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-tab8 {
+        width: calc( ((100% / 12) * 8) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-tab9 {
+        width: calc( ((100% / 12) * 9) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-tab10 {
+        width: calc( ((100% / 12) * 10) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-tab11 {
+        width: calc( ((100% / 12) * 11) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-tab12 {
+        width: calc( ((100% / 12) * 12) - 1.5em );
+        margin: calc(1.5em/2); } }
+    @media screen and (min-width: 769px) {
+      .flex > .flex__item.-lap1 {
+        width: calc( ((100% / 12) * 1) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-lap2 {
+        width: calc( ((100% / 12) * 2) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-lap3 {
+        width: calc( ((100% / 12) * 3) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-lap4 {
+        width: calc( ((100% / 12) * 4) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-lap5 {
+        width: calc( ((100% / 12) * 5) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-lap6 {
+        width: calc( ((100% / 12) * 6) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-lap7 {
+        width: calc( ((100% / 12) * 7) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-lap8 {
+        width: calc( ((100% / 12) * 8) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-lap9 {
+        width: calc( ((100% / 12) * 9) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-lap10 {
+        width: calc( ((100% / 12) * 10) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-lap11 {
+        width: calc( ((100% / 12) * 11) - 1.5em );
+        margin: calc(1.5em/2); }
+      .flex > .flex__item.-lap12 {
+        width: calc( ((100% / 12) * 12) - 1.5em );
+        margin: calc(1.5em/2); } }
+
+.fex--column {
+  /* [6] */
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column; }
+  .fex--column.reverse {
+    -webkit-flex-direction: column-reverse;
+    -moz-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    -o-flex-direction: column-reverse;
+    flex-direction: column-reverse; }
+  .fex--column > .flex__item {
+    /* [2] */
+    /* [3] */
+    /* [4] */
+    /* [3] */
+    /* [5] */
+    /* [3] */
+    /* [5] */ }
+    .fex--column > .flex__item.-mob1 {
+      height: calc( ((100% / 12) * 1) - 1.5em );
+      margin: calc(1.5em/2); }
+    .fex--column > .flex__item.-mob2 {
+      height: calc( ((100% / 12) * 2) - 1.5em );
+      margin: calc(1.5em/2); }
+    .fex--column > .flex__item.-mob3 {
+      height: calc( ((100% / 12) * 3) - 1.5em );
+      margin: calc(1.5em/2); }
+    .fex--column > .flex__item.-mob4 {
+      height: calc( ((100% / 12) * 4) - 1.5em );
+      margin: calc(1.5em/2); }
+    .fex--column > .flex__item.-mob5 {
+      height: calc( ((100% / 12) * 5) - 1.5em );
+      margin: calc(1.5em/2); }
+    .fex--column > .flex__item.-mob6 {
+      height: calc( ((100% / 12) * 6) - 1.5em );
+      margin: calc(1.5em/2); }
+    .fex--column > .flex__item.-mob7 {
+      height: calc( ((100% / 12) * 7) - 1.5em );
+      margin: calc(1.5em/2); }
+    .fex--column > .flex__item.-mob8 {
+      height: calc( ((100% / 12) * 8) - 1.5em );
+      margin: calc(1.5em/2); }
+    .fex--column > .flex__item.-mob9 {
+      height: calc( ((100% / 12) * 9) - 1.5em );
+      margin: calc(1.5em/2); }
+    .fex--column > .flex__item.-mob10 {
+      height: calc( ((100% / 12) * 10) - 1.5em );
+      margin: calc(1.5em/2); }
+    .fex--column > .flex__item.-mob11 {
+      height: calc( ((100% / 12) * 11) - 1.5em );
+      margin: calc(1.5em/2); }
+    .fex--column > .flex__item.-mob12 {
+      height: calc( ((100% / 12) * 12) - 1.5em );
+      margin: calc(1.5em/2); }
+    @media screen and (min-width: 601px) {
+      .fex--column > .flex__item.-tab1 {
+        height: calc( ((100% / 12) * 1) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-tab2 {
+        height: calc( ((100% / 12) * 2) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-tab3 {
+        height: calc( ((100% / 12) * 3) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-tab4 {
+        height: calc( ((100% / 12) * 4) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-tab5 {
+        height: calc( ((100% / 12) * 5) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-tab6 {
+        height: calc( ((100% / 12) * 6) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-tab7 {
+        height: calc( ((100% / 12) * 7) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-tab8 {
+        height: calc( ((100% / 12) * 8) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-tab9 {
+        height: calc( ((100% / 12) * 9) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-tab10 {
+        height: calc( ((100% / 12) * 10) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-tab11 {
+        height: calc( ((100% / 12) * 11) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-tab12 {
+        height: calc( ((100% / 12) * 12) - 1.5em );
+        margin: calc(1.5em/2); } }
+    @media screen and (min-width: 769px) {
+      .fex--column > .flex__item.-lap1 {
+        height: calc( ((100% / 12) * 1) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-lap2 {
+        height: calc( ((100% / 12) * 2) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-lap3 {
+        height: calc( ((100% / 12) * 3) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-lap4 {
+        height: calc( ((100% / 12) * 4) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-lap5 {
+        height: calc( ((100% / 12) * 5) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-lap6 {
+        height: calc( ((100% / 12) * 6) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-lap7 {
+        height: calc( ((100% / 12) * 7) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-lap8 {
+        height: calc( ((100% / 12) * 8) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-lap9 {
+        height: calc( ((100% / 12) * 9) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-lap10 {
+        height: calc( ((100% / 12) * 10) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-lap11 {
+        height: calc( ((100% / 12) * 11) - 1.5em );
+        margin: calc(1.5em/2); }
+      .fex--column > .flex__item.-lap12 {
+        height: calc( ((100% / 12) * 12) - 1.5em );
+        margin: calc(1.5em/2); } }
+
+.flex--ng {
+  /* [7] */ }
+  .flex--ng > .flex__item {
+    /* [2] */
+    /* [3] */
+    /* [4] */
+    /* [3] */
+    /* [5] */
+    /* [3] */
+    /* [5] */ }
+    .flex--ng > .flex__item.-mob1 {
+      width: calc( ((100% / 12) * 1));
+      margin: initial; }
+    .flex--ng > .flex__item.-mob2 {
+      width: calc( ((100% / 12) * 2));
+      margin: initial; }
+    .flex--ng > .flex__item.-mob3 {
+      width: calc( ((100% / 12) * 3));
+      margin: initial; }
+    .flex--ng > .flex__item.-mob4 {
+      width: calc( ((100% / 12) * 4));
+      margin: initial; }
+    .flex--ng > .flex__item.-mob5 {
+      width: calc( ((100% / 12) * 5));
+      margin: initial; }
+    .flex--ng > .flex__item.-mob6 {
+      width: calc( ((100% / 12) * 6));
+      margin: initial; }
+    .flex--ng > .flex__item.-mob7 {
+      width: calc( ((100% / 12) * 7));
+      margin: initial; }
+    .flex--ng > .flex__item.-mob8 {
+      width: calc( ((100% / 12) * 8));
+      margin: initial; }
+    .flex--ng > .flex__item.-mob9 {
+      width: calc( ((100% / 12) * 9));
+      margin: initial; }
+    .flex--ng > .flex__item.-mob10 {
+      width: calc( ((100% / 12) * 10));
+      margin: initial; }
+    .flex--ng > .flex__item.-mob11 {
+      width: calc( ((100% / 12) * 11));
+      margin: initial; }
+    .flex--ng > .flex__item.-mob12 {
+      width: calc( ((100% / 12) * 12));
+      margin: initial; }
+    @media screen and (min-width: 601px) {
+      .flex--ng > .flex__item.-tab1 {
+        width: calc( ((100% / 12) * 1));
+        margin: initial; }
+      .flex--ng > .flex__item.-tab2 {
+        width: calc( ((100% / 12) * 2));
+        margin: initial; }
+      .flex--ng > .flex__item.-tab3 {
+        width: calc( ((100% / 12) * 3));
+        margin: initial; }
+      .flex--ng > .flex__item.-tab4 {
+        width: calc( ((100% / 12) * 4));
+        margin: initial; }
+      .flex--ng > .flex__item.-tab5 {
+        width: calc( ((100% / 12) * 5));
+        margin: initial; }
+      .flex--ng > .flex__item.-tab6 {
+        width: calc( ((100% / 12) * 6));
+        margin: initial; }
+      .flex--ng > .flex__item.-tab7 {
+        width: calc( ((100% / 12) * 7));
+        margin: initial; }
+      .flex--ng > .flex__item.-tab8 {
+        width: calc( ((100% / 12) * 8));
+        margin: initial; }
+      .flex--ng > .flex__item.-tab9 {
+        width: calc( ((100% / 12) * 9));
+        margin: initial; }
+      .flex--ng > .flex__item.-tab10 {
+        width: calc( ((100% / 12) * 10));
+        margin: initial; }
+      .flex--ng > .flex__item.-tab11 {
+        width: calc( ((100% / 12) * 11));
+        margin: initial; }
+      .flex--ng > .flex__item.-tab12 {
+        width: calc( ((100% / 12) * 12));
+        margin: initial; } }
+    @media screen and (min-width: 769px) {
+      .flex--ng > .flex__item.-lap1 {
+        width: calc( ((100% / 12) * 1));
+        margin: initial; }
+      .flex--ng > .flex__item.-lap2 {
+        width: calc( ((100% / 12) * 2));
+        margin: initial; }
+      .flex--ng > .flex__item.-lap3 {
+        width: calc( ((100% / 12) * 3));
+        margin: initial; }
+      .flex--ng > .flex__item.-lap4 {
+        width: calc( ((100% / 12) * 4));
+        margin: initial; }
+      .flex--ng > .flex__item.-lap5 {
+        width: calc( ((100% / 12) * 5));
+        margin: initial; }
+      .flex--ng > .flex__item.-lap6 {
+        width: calc( ((100% / 12) * 6));
+        margin: initial; }
+      .flex--ng > .flex__item.-lap7 {
+        width: calc( ((100% / 12) * 7));
+        margin: initial; }
+      .flex--ng > .flex__item.-lap8 {
+        width: calc( ((100% / 12) * 8));
+        margin: initial; }
+      .flex--ng > .flex__item.-lap9 {
+        width: calc( ((100% / 12) * 9));
+        margin: initial; }
+      .flex--ng > .flex__item.-lap10 {
+        width: calc( ((100% / 12) * 10));
+        margin: initial; }
+      .flex--ng > .flex__item.-lap11 {
+        width: calc( ((100% / 12) * 11));
+        margin: initial; }
+      .flex--ng > .flex__item.-lap12 {
+        width: calc( ((100% / 12) * 12));
+        margin: initial; } }
+
+.flex--col-ng {
+  /* [8]] */ }
+  .flex--col-ng.reverse {
+    -webkit-flex-direction: column-reverse;
+    -moz-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    -o-flex-direction: column-reverse;
+    flex-direction: column-reverse; }
+  .flex--col-ng > .flex__item {
+    /* [2] */
+    /* [3] */
+    /* [4] */
+    /* [3] */
+    /* [5] */
+    /* [3] */
+    /* [5] */ }
+    .flex--col-ng > .flex__item.-mob1 {
+      height: calc( ((100% / 12) * 1) );
+      margin: initial; }
+    .flex--col-ng > .flex__item.-mob2 {
+      height: calc( ((100% / 12) * 2) );
+      margin: initial; }
+    .flex--col-ng > .flex__item.-mob3 {
+      height: calc( ((100% / 12) * 3) );
+      margin: initial; }
+    .flex--col-ng > .flex__item.-mob4 {
+      height: calc( ((100% / 12) * 4) );
+      margin: initial; }
+    .flex--col-ng > .flex__item.-mob5 {
+      height: calc( ((100% / 12) * 5) );
+      margin: initial; }
+    .flex--col-ng > .flex__item.-mob6 {
+      height: calc( ((100% / 12) * 6) );
+      margin: initial; }
+    .flex--col-ng > .flex__item.-mob7 {
+      height: calc( ((100% / 12) * 7) );
+      margin: initial; }
+    .flex--col-ng > .flex__item.-mob8 {
+      height: calc( ((100% / 12) * 8) );
+      margin: initial; }
+    .flex--col-ng > .flex__item.-mob9 {
+      height: calc( ((100% / 12) * 9) );
+      margin: initial; }
+    .flex--col-ng > .flex__item.-mob10 {
+      height: calc( ((100% / 12) * 10) );
+      margin: initial; }
+    .flex--col-ng > .flex__item.-mob11 {
+      height: calc( ((100% / 12) * 11) );
+      margin: initial; }
+    .flex--col-ng > .flex__item.-mob12 {
+      height: calc( ((100% / 12) * 12) );
+      margin: initial; }
+    @media screen and (min-width: 601px) {
+      .flex--col-ng > .flex__item.-tab1 {
+        height: calc( ((100% / 12) * 1) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-tab2 {
+        height: calc( ((100% / 12) * 2) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-tab3 {
+        height: calc( ((100% / 12) * 3) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-tab4 {
+        height: calc( ((100% / 12) * 4) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-tab5 {
+        height: calc( ((100% / 12) * 5) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-tab6 {
+        height: calc( ((100% / 12) * 6) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-tab7 {
+        height: calc( ((100% / 12) * 7) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-tab8 {
+        height: calc( ((100% / 12) * 8) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-tab9 {
+        height: calc( ((100% / 12) * 9) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-tab10 {
+        height: calc( ((100% / 12) * 10) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-tab11 {
+        height: calc( ((100% / 12) * 11) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-tab12 {
+        height: calc( ((100% / 12) * 12) );
+        margin: initial; } }
+    @media screen and (min-width: 769px) {
+      .flex--col-ng > .flex__item.-lap1 {
+        height: calc( ((100% / 12) * 1) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-lap2 {
+        height: calc( ((100% / 12) * 2) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-lap3 {
+        height: calc( ((100% / 12) * 3) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-lap4 {
+        height: calc( ((100% / 12) * 4) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-lap5 {
+        height: calc( ((100% / 12) * 5) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-lap6 {
+        height: calc( ((100% / 12) * 6) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-lap7 {
+        height: calc( ((100% / 12) * 7) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-lap8 {
+        height: calc( ((100% / 12) * 8) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-lap9 {
+        height: calc( ((100% / 12) * 9) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-lap10 {
+        height: calc( ((100% / 12) * 10) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-lap11 {
+        height: calc( ((100% / 12) * 11) );
+        margin: initial; }
+      .flex--col-ng > .flex__item.-lap12 {
+        height: calc( ((100% / 12) * 12) );
+        margin: initial; } }
+
+/*
+    Give flex containers all their flexbox super powers
+ */
+.flex,
+.flex--column,
+.flex--ng,
+.flex--col-ng {
+  width: 100%;
+  margin: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  -o-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  -o-align-items: stretch;
+  align-items: stretch;
+  -webkit-align-content: stretch;
+  -moz-align-content: stretch;
+  -ms-align-content: stretch;
+  -o-align-content: stretch;
+  align-content: stretch; }
+  .flex.-nowrap,
+  .flex--column.-nowrap,
+  .flex--ng.-nowrap,
+  .flex--col-ng.-nowrap {
+    -webkit-flex-wrap: nowrap;
+    -moz-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    -o-flex-wrap: nowrap;
+    flex-wrap: nowrap; }
+  .flex.-wrap-reverse,
+  .flex--column.-wrap-reverse,
+  .flex--ng.-wrap-reverse,
+  .flex--col-ng.-wrap-reverse {
+    -webkit-flex-wrap: wrap-reverse;
+    -moz-flex-wrap: wrap-reverse;
+    -ms-flex-wrap: wrap-reverse;
+    -o-flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse; }
+  .flex.-justify-end,
+  .flex--column.-justify-end,
+  .flex--ng.-justify-end,
+  .flex--col-ng.-justify-end {
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    -o-justify-content: flex-end;
+    justify-content: flex-end; }
+  .flex.-justify-center,
+  .flex--column.-justify-center,
+  .flex--ng.-justify-center,
+  .flex--col-ng.-justify-center {
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center; }
+  .flex.-justify-between,
+  .flex--column.-justify-between,
+  .flex--ng.-justify-between,
+  .flex--col-ng.-justify-between {
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between; }
+  .flex.-justify-around,
+  .flex--column.-justify-around,
+  .flex--ng.-justify-around,
+  .flex--col-ng.-justify-around {
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    -o-justify-content: space-around;
+    justify-content: space-around; }
+  .flex.-align-items-start,
+  .flex--column.-align-items-start,
+  .flex--ng.-align-items-start,
+  .flex--col-ng.-align-items-start {
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    -ms-align-items: flex-start;
+    -o-align-items: flex-start;
+    align-items: flex-start; }
+  .flex.-align-items-end,
+  .flex--column.-align-items-end,
+  .flex--ng.-align-items-end,
+  .flex--col-ng.-align-items-end {
+    -webkit-align-items: flex-end;
+    -moz-align-items: flex-end;
+    -ms-align-items: flex-end;
+    -o-align-items: flex-end;
+    align-items: flex-end; }
+  .flex.-align-items-center,
+  .flex--column.-align-items-center,
+  .flex--ng.-align-items-center,
+  .flex--col-ng.-align-items-center {
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center; }
+  .flex.-align-items-baseline,
+  .flex--column.-align-items-baseline,
+  .flex--ng.-align-items-baseline,
+  .flex--col-ng.-align-items-baseline {
+    -webkit-align-items: baseline;
+    -moz-align-items: baseline;
+    -ms-align-items: baseline;
+    -o-align-items: baseline;
+    align-items: baseline; }
+  .flex.-align-content-start,
+  .flex--column.-align-content-start,
+  .flex--ng.-align-content-start,
+  .flex--col-ng.-align-content-start {
+    -webkit-align-content: flex-start;
+    -moz-align-content: flex-start;
+    -ms-align-content: flex-start;
+    -o-align-content: flex-start;
+    align-content: flex-start; }
+  .flex.-align-content-end,
+  .flex--column.-align-content-end,
+  .flex--ng.-align-content-end,
+  .flex--col-ng.-align-content-end {
+    -webkit-align-content: flex-end;
+    -moz-align-content: flex-end;
+    -ms-align-content: flex-end;
+    -o-align-content: flex-end;
+    align-content: flex-end; }
+  .flex.-align-content-center,
+  .flex--column.-align-content-center,
+  .flex--ng.-align-content-center,
+  .flex--col-ng.-align-content-center {
+    -webkit-align-content: center;
+    -moz-align-content: center;
+    -ms-align-content: center;
+    -o-align-content: center;
+    align-content: center; }
+  .flex.-align-content-between,
+  .flex--column.-align-content-between,
+  .flex--ng.-align-content-between,
+  .flex--col-ng.-align-content-between {
+    -webkit-align-content: space-between;
+    -moz-align-content: space-between;
+    -ms-align-content: space-between;
+    -o-align-content: space-between;
+    align-content: space-between; }
+  .flex.-align-content-around,
+  .flex--column.-align-content-around,
+  .flex--ng.-align-content-around,
+  .flex--col-ng.-align-content-around {
+    -webkit-align-content: space-around;
+    -moz-align-content: space-around;
+    -ms-align-content: space-around;
+    -o-align-content: space-around;
+    align-content: space-around; }
+
+/*
+    Give all flex items their flexbox super powers
+ */
+.flex__item,
+.flex--column__item,
+.flex--ng__item,
+.flex--col-ng__item {
+  -webkit-order: 0;
+  -moz-order: 0;
+  -ms-order: 0;
+  -o-order: 0;
+  order: 0;
+  -webkit-flex-grow: 0;
+  -moz-flex-grow: 0;
+  -ms-flex-grow: 0;
+  -o-flex-grow: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  -o-flex-shrink: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: auto;
+  -moz-flex-basis: auto;
+  -ms-flex-basis: auto;
+  -o-flex-basis: auto;
+  flex-basis: auto;
+  -webkit-align-self: auto;
+  -moz-align-self: auto;
+  -ms-align-self: auto;
+  -o-align-self: auto;
+  align-self: auto; }
+
+/*
+    Define width breakpoints for flex container
+ */
+@media screen and (min-width: 601px) {
+  .flex,
+  .flex--column,
+  .flex--ng,
+  .flex--col-ng {
+    max-width: 993.28px; } }
+@media screen and (min-width: 769px) {
+  .flex,
+  .flex--column,
+  .flex--ng,
+  .flex--col-ng {
+    max-width: 1241.6px; } }
+@media screen and (min-width: 1601px) {
+  .flex,
+  .flex--column,
+  .flex--ng,
+  .flex--col-ng {
+    max-width: 1862.4px; } }
+/*
+    This creates classes for column offset for every breakpoint
+    @output {class} .offset-<breakpoint abbreviation><number of columns>
+ */
+.offset-mob1 {
+  margin-left: calc( (100%/12) * 1); }
+
+.offset-mob2 {
+  margin-left: calc( (100%/12) * 2); }
+
+.offset-mob3 {
+  margin-left: calc( (100%/12) * 3); }
+
+.offset-mob4 {
+  margin-left: calc( (100%/12) * 4); }
+
+.offset-mob5 {
+  margin-left: calc( (100%/12) * 5); }
+
+.offset-mob6 {
+  margin-left: calc( (100%/12) * 6); }
+
+.offset-mob7 {
+  margin-left: calc( (100%/12) * 7); }
+
+.offset-mob8 {
+  margin-left: calc( (100%/12) * 8); }
+
+.offset-mob9 {
+  margin-left: calc( (100%/12) * 9); }
+
+.offset-mob10 {
+  margin-left: calc( (100%/12) * 10); }
+
+.offset-mob11 {
+  margin-left: calc( (100%/12) * 11); }
+
+.offset-mob12 {
+  margin-left: calc( (100%/12) * 12); }
+
+@media screen and (min-width: 601px) {
+  .offset-tab1 {
+    margin-left: calc( (100%/12) * 1); }
+
+  .offset-tab2 {
+    margin-left: calc( (100%/12) * 2); }
+
+  .offset-tab3 {
+    margin-left: calc( (100%/12) * 3); }
+
+  .offset-tab4 {
+    margin-left: calc( (100%/12) * 4); }
+
+  .offset-tab5 {
+    margin-left: calc( (100%/12) * 5); }
+
+  .offset-tab6 {
+    margin-left: calc( (100%/12) * 6); }
+
+  .offset-tab7 {
+    margin-left: calc( (100%/12) * 7); }
+
+  .offset-tab8 {
+    margin-left: calc( (100%/12) * 8); }
+
+  .offset-tab9 {
+    margin-left: calc( (100%/12) * 9); }
+
+  .offset-tab10 {
+    margin-left: calc( (100%/12) * 10); }
+
+  .offset-tab11 {
+    margin-left: calc( (100%/12) * 11); }
+
+  .offset-tab12 {
+    margin-left: calc( (100%/12) * 12); } }
+@media screen and (min-width: 769px) {
+  .offset-lap1 {
+    margin-left: calc( (100%/12) * 1); }
+
+  .offset-lap2 {
+    margin-left: calc( (100%/12) * 2); }
+
+  .offset-lap3 {
+    margin-left: calc( (100%/12) * 3); }
+
+  .offset-lap4 {
+    margin-left: calc( (100%/12) * 4); }
+
+  .offset-lap5 {
+    margin-left: calc( (100%/12) * 5); }
+
+  .offset-lap6 {
+    margin-left: calc( (100%/12) * 6); }
+
+  .offset-lap7 {
+    margin-left: calc( (100%/12) * 7); }
+
+  .offset-lap8 {
+    margin-left: calc( (100%/12) * 8); }
+
+  .offset-lap9 {
+    margin-left: calc( (100%/12) * 9); }
+
+  .offset-lap10 {
+    margin-left: calc( (100%/12) * 10); }
+
+  .offset-lap11 {
+    margin-left: calc( (100%/12) * 11); }
+
+  .offset-lap12 {
+    margin-left: calc( (100%/12) * 12); } }
+/*
+    These create off canvas navigation elements and styles
+ */
+.off-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative; }
+  .off-canvas > .off-canvas__nav {
+    -webkit-transition: transform 0.2s ease-in;
+    -moz-transition: transform 0.2s ease-in;
+    -ms-transition: transform 0.2s ease-in;
+    -o-transition: transform 0.2s ease-in;
+    transition: transform 0.2s ease-in;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%); }
+    .off-canvas > .off-canvas__nav .is-open {
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+      transform: translateX(0); }
+  .off-canvas > .off-canvas__main {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+  @media screen and (min-width: 769px) {
+    .off-canvas {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-wrap: nowrap;
+      -moz-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      -o-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      -webkit-justify-content: flex-start;
+      -moz-justify-content: flex-start;
+      -ms-justify-content: flex-start;
+      -o-justify-content: flex-start;
+      justify-content: flex-start;
+      -webkit-align-items: stretch;
+      -moz-align-items: stretch;
+      -ms-align-items: stretch;
+      -o-align-items: stretch;
+      align-items: stretch;
+      -webkit-align-content: stretch;
+      -moz-align-content: stretch;
+      -ms-align-content: stretch;
+      -o-align-content: stretch;
+      align-content: stretch;
+      -webkit-flex-direction: row;
+      -moz-flex-direction: row;
+      -ms-flex-direction: row;
+      -o-flex-direction: row;
+      flex-direction: row; }
+      .off-canvas > .off-canvas__nav {
+        width: calc( 100%/12 * 4 );
+        position: relative;
+        transform: translate(0, 0); }
+      .off-canvas > .off-canvas__main {
+        -webkit-flex-grow: 1;
+        -moz-flex-grow: 1;
+        -ms-flex-grow: 1;
+        -o-flex-grow: 1;
+        flex-grow: 1; } }
+
+/**
+ *    6. PAGES
+ *    Home.............................Styles specific to the home page
+ */
+/**
+ *    7. THEMES
+ *    Default..........................Default theme
+ */
+
+/*# sourceMappingURL=main.css.map */

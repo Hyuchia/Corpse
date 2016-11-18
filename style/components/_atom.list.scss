@@ -1,0 +1,215 @@
+//------------------------------------------------------------------------------
+//  This file contains all styles related to the list component
+//------------------------------------------------------------------------------
+
+/**
+  *    Presets for lists default style
+  *    Sets indentation for list items and nested lists
+  */
+ul, ol, dl{
+    list-style-position: inside;
+    list-style-type: initial;
+
+    /*
+        Removes list item marker
+     */
+    &.list.-type-none{
+        list-style-type: none;
+    }
+
+    li, dt, dd{
+        padding-left: 5px;
+    }
+
+    /*
+        Sets indentation for nested lists
+     */
+    & ul, ol, dl{
+        padding-left: 15px;
+        margin-top: 5px;
+    }
+
+    /*
+        Creates modifier for showing inline list items
+        Useful for navigation
+     */
+    &.list.-display-inline li{
+        list-style-type: none;
+        display: inline-block;
+        padding-left: 0;
+        margin: 0 $list-inline-gap;
+
+        // Prevents first-child to be more indented than needed
+        &:first-child{
+            margin-left: 0;
+        }
+
+        // Prevents last-child to push neighbour elements apart
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+
+
+
+
+
+/**
+ *    Defines style and three levels of indentation for unordered lists
+ */
+ul{
+    list-style-type: disc;
+
+    & > ul{ // Nested first level
+        list-style-type: circle;
+
+        & > ul{ // Nested second level
+            list-style-type: square;
+        }
+    }
+}
+
+
+
+
+
+/**
+ *    Defines style and three levels of indentation for ordered lists
+ */
+ol{
+    list-style-type: decimal;
+
+    /*
+        Creates modifier to use list item decimal mark
+     */
+    &.list.-type-numbers{
+        list-style-type: decimal;
+    }
+
+    /*
+        Creates modifier to use list item uppercase letters mark
+     */
+    &.list.-type-uppercase{
+        list-style-type: upper-latin;
+    }
+
+    /*
+        Creates modifier to use list item lowercase letters mark
+     */
+    &.list.-type-lowercase{
+        list-style-type: lower-latin;
+    }
+
+    & > ol{ // Nested first level
+        list-style-type: lower-latin;
+
+        & > ol{ // Nested second level
+            list-style-type: square;
+        }
+    }
+}
+
+
+
+
+
+/**
+ *    Defines style and three levels of indentation for definition lists
+ */
+dl{
+    list-style-type: none;
+
+    dt{
+        font-weight: $font-weight-medium;
+        // Prevents first definition term to be more indented than needed
+        &:not(:first-child){
+            margin-top: 10px;
+        }
+    }
+
+    dd{
+        font-weight: $font-weight-regular;
+        color: $color-text-light;
+    }
+
+    /*
+        Creates modifier to show inline list items when predefined breakpoint is reached.
+     */
+    &.list.-display-inline{
+        @include respond-to($base-static-breakpoint){
+            width: 100%;
+            height: auto;
+            margin: auto;
+            @include flex();
+            @include flex-wrap($flexbox-wrap-default);
+            @include justify-content($flexbox-justify-content-default);
+            @include align-items($flexbox-align-items-default);
+            @include align-content($flexbox-align-content-default);
+            @include flex-direction(row);
+
+            dt{
+                width: 25%;
+                text-align: right;
+                padding: 0 15px;
+                margin-top: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            dd{
+                width: 75%;
+                padding: 0 15px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}
+
+
+
+
+
+/**
+ *    Defines styles for costume list item marker
+ */
+li.list__item.-type-brand-1,
+li.list__item.-type-brand-2{
+    list-style-type: none;
+
+    &:before{
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        height: 16px;
+        width: 16px;
+    }
+}
+
+
+
+
+
+/**
+ *    Sets costume marker for modifier 1
+ */
+li.list__item.-type-brand-1:before{
+    background: url($list-type-brand-1) 50% 50% no-repeat;
+    background-size: cover;
+}
+
+
+
+
+
+/**
+ *    Sets costume marker for modifier 2
+ */
+li.list__item.-type-brand-2:before{
+    background: url($list-type-brand-2) 50% 50% no-repeat;
+    background-size: cover;
+}

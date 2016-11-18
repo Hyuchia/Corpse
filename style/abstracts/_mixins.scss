@@ -1,0 +1,12 @@
+//------------------------------------------------------------------------------
+//  This file contains globally used mixins
+//------------------------------------------------------------------------------
+//  1. Generic.........................Useful mixins for every ocasion
+//  2. Animation.......................Basic animation mixins
+//  3. Typography......................Typography related mixins
+//  4. Grid............................Grid related mixins
+
+@import 'mixins.generic',
+        'mixins.animation',
+        'mixins.typography',
+        'mixins.grid';

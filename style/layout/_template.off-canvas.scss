@@ -1,0 +1,50 @@
+//------------------------------------------------------------------------------
+//  This file contains all styles related to off-canvas navigation layout
+//------------------------------------------------------------------------------
+
+/*
+    These create off canvas navigation elements and styles
+ */
+.off-canvas{
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    & > .off-canvas__nav{
+        @include transition(transform $global-animation-duration $global-animation-timing);
+
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        @include transform(translateX(-100%));
+
+        .is-open{
+            @include transform(translateX(0));
+        }
+    }
+
+    & > .off-canvas__main{
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    @include respond-to($base-static-breakpoint){
+        @include flex();
+        @include flex-wrap(nowrap);
+        @include justify-content($flexbox-justify-content-default);
+        @include align-items($flexbox-align-items-default);
+        @include align-content($flexbox-align-content-default);
+        @include flex-direction(row);
+
+        & > .off-canvas__nav{
+            width: calc( 100%/12 * 4 );
+            position: relative;
+            transform: translate(0, 0);
+        }
+
+        & > .off-canvas__main{
+            @include flex-grow(1);
+        }
+    }
+}

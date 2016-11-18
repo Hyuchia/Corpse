@@ -1,0 +1,65 @@
+//------------------------------------------------------------------------------
+//  This file contains all styles related to the input component
+//------------------------------------------------------------------------------
+
+/**
+ *    Overrides default color of input placeholder text
+ */
+::-webkit-input-placeholder {   color: $color-ui-placeholder; }
+::-moz-placeholder {            color: $color-ui-placeholder; }
+:-ms-input-placeholder {        color: $color-ui-placeholder; }
+input:-moz-placeholder {        color: $color-ui-placeholder; }
+
+.input--ghost.-bkg-white::-webkit-input-placeholder {   color: $color-text-white; }
+.input--ghost.-bkg-white::-moz-placeholder {            color: $color-text-white; }
+.input--ghost.-bkg-white:-ms-input-placeholder {        color: $color-text-white; }
+.input--ghost.-bkg-white:-moz-placeholder {        color: $color-text-white; }
+
+
+
+
+
+/**
+ *    Resets default style of input element
+ */
+input{
+    @include transition(background-color $global-animation-duration $global-animation-timing);
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: $color-ui-grey-light;
+    font-size: 1em;
+    color: $color-text-light;
+    border-radius: $button-border-radius;
+
+    &:hover,
+    &:focus{
+        background-color: $color-ui-grey;
+    }
+
+    span.input__icon,
+    i.input__icon{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+input.input{
+    @extend input;
+
+    &.-rounded{ border-radius: 20em; }
+
+    &.-medium{  padding: 0.7rem 1.7rem; }
+
+    &.-large{   padding: 1rem 2.3rem; }
+
+    &.is-disabled,
+    &[disabled="true"],
+    &[disabled]{
+        cursor: not-allowed;
+        background-color: $color-ui-grey-light;
+        color: $color-text-lightest;
+        box-shadow: inset 0 0 0 $button-border $color-ui-grey;
+    }
+}

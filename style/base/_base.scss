@@ -1,0 +1,100 @@
+//------------------------------------------------------------------------------
+//  This file contains standard, basic styles
+//------------------------------------------------------------------------------
+
+/**
+ *    Overrides the default text selection color for Gecko Browsers
+ *    1) Changes the selection color
+ *    2) Changes the selected text color
+ */
+
+::-moz-selection {
+   background: $color-ui-selection;     /* [1] */
+   color: $color-text;      /* [2] */
+}
+
+
+
+
+
+/**
+ *    Overrides the default text selection color
+ *    1) Changes the selection color
+ *    2) Changes the selected text color
+ */
+
+::selection {
+   background: $color-ui-selection;     /* [1] */
+   color: $color-text;      /* [2] */
+}
+
+
+
+
+
+/**
+ *    Set up base styles in root element
+ */
+
+html{
+    @include box-sizing(border-box);
+    -webkit-tap-highlight-color: $color-ui-tap-highlight;
+    font-size: 16px;
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+
+
+
+
+/**
+ *    Presets for body
+ *    1) Emphasize legibility over rendering speed and geometric precision
+ *    2) Smooth the font on the level of the pixel
+ *    3) Render text with grayscale antialiasing
+ */
+
+body {
+    text-rendering: optimizeLegibility;     /* [1] */
+    -webkit-font-smoothing: antialiased;        /* [2] */
+    -moz-osx-font-smoothing: grayscale;     /* [3] */
+    font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+    color: $color-text;
+    font: normal 100%/1.4 -apple-system, BlinkMacSystemFont,
+                        "Segoe UI", Roboto, Oxygen, Ubuntu,
+                        Cantarell, "Fira Sans", "Droid Sans",
+                        "Helvetica Neue", sans-serif;
+}
+
+
+
+
+
+/**
+ *    Make all elements from the DOM inherit from the parent box-sizing
+ *    Since `*` has a specificity of 0, it does not override the `html` value making all elements inheriting from the root box-sizing value
+ *    See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+
+*,
+*:before,
+*:after{
+    @include box-sizing(inherit);
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+/**
+ *    Prevent overflowing content 
+ */
+ img, embed,
+ object, video{
+   max-width: 100%;
+ }

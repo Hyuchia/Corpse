@@ -1,0 +1,80 @@
+//------------------------------------------------------------------------------
+//  This file contains mixins for basic css animations
+//------------------------------------------------------------------------------
+//  transition()................Prefix transition property
+//  transform().................Prefix transform property
+//  translate().................Prefix translate property
+//  translateX()................Prefix x translate property
+//  translateY()................Prefix y translate property
+
+/*
+    Prefix the transition property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value for the transition property
+ */
+ @mixin transition($val){
+    @include prefix((transition: $val));
+ }
+
+
+
+
+
+/*
+    Prefix transform property
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $val - value for the transform property
+ */
+ @mixin transform($val) {
+     @include prefix((transform: $val));
+ }
+
+
+
+
+
+/*
+    Prefix transform property for the translate value
+    ----------------------------------------
+    @access public
+    ----------------------------------------
+    @param {string} $x - value for x translation
+    @param {string} $y - value for y translation
+ */
+ @mixin translate ($x, $y) {
+     @include transform(translate($x, $y));
+ }
+
+
+
+
+
+ /*
+     Prefix transform property for the translate x value
+     ----------------------------------------
+     @access public
+     ----------------------------------------
+     @param {string} $x - value for x translation
+  */
+  @mixin translateX ($x) {
+      @include transform(translateX($x));
+  }
+
+
+
+
+
+  /*
+      Prefix transform property for the translate y value
+      ----------------------------------------
+      @access public
+      ----------------------------------------
+      @param {string} $y - value for y translation
+   */
+   @mixin translateY ($y) {
+       @include transform(translateY($y));
+   }
