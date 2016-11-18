@@ -28,8 +28,12 @@
 				array_pop($text);
 
                 foreach($text as $index => $t){
-                    $this -> _content .= "<p>".$text[$index]."</p>";
+                    if ($index != 0){
+                        $this -> _content .= "<p>".$text[$index]."</p>";
+                    }
                 }
+                $this -> first = $text[0];
+
 
 
 			}else{

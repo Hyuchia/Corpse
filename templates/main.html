@@ -1,3 +1,16 @@
+<div class="modal-wrapper new-corpse">
+	<div class="modal">
+		<form method="post" class="new-corpse">
+			<p>To create your corpse you need to give it a name and an initial phrase:</p>
+			<input type="text" name="title" placeholder="Title" required="true"/>
+			<input type="text" name="initial" placeholder="Initial phrase" required="true"/>
+			<div class="flex -justify-center">
+				<button class="js-toggle" data-toggle="new-corpse">Cancel</button>
+				<button type="submit">Create</button>
+			</div>
+		</form>
+	</div>
+</div>
 <div class="corpses-previews">
 	<ul class="previews-wrapper list -type-none">
 		{{repeat corpsePreview corpses}}

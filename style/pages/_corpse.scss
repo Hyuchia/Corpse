@@ -17,12 +17,18 @@
 
 form{
     text-align: center;
+    margin-top: 2rem !important;
+
+    @include respond-to('lap'){
+        margin-top: 0 !important;
+    }
 
     input{
         width: 100%;
+        max-width: 800px;
         background-color: transparent;
-        border: 2px solid $color-brand-primary;
-        color: $color-brand-primary;
+        border-bottom: 2px solid $color-brand-secondary;
+        color: $color-text-white;
 
         &:hover,
         &:focus{
@@ -32,5 +38,14 @@ form{
 
     button{
         margin-left: 2rem;
+        border-radius: 2em;
     }
+}
+
+.widget{
+    @include justify-content(flex-start !important);
+}
+
+p.first{
+    font-size: 1.5em;
 }

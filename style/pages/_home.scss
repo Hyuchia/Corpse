@@ -9,13 +9,14 @@ body{
 .corpses-previews{
     width: 100vw;
     overflow-x: hidden;
-    min-height: 100vh;
-    background-color: rgba(0, 0, 0, 0.54);
-    padding-bottom: 27vh;
+    //background-color: rgba(0, 0, 0, 0.54);
+    padding-bottom: 0;
+    height: 100vh;
 
     .previews-wrapper{
         width: auto;
         overflow-x: scroll;
+        position: relative;
 
         .preview{
             @include transition($global-animation);
@@ -29,6 +30,14 @@ body{
                 background-color: rgba($color-ui-white, 0.06);
             }
 
+            &.active{
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                border-bottom: 0;
+            }
+
             h1{
                 text-transform: uppercase;
                 letter-spacing: 3px
@@ -36,13 +45,13 @@ body{
 
             .preview-actions button{
                 background-color: transparent;
-                border-bottom: 1px solid $color-text-white-light;
-                font-weight: bold;
+                border: 1px solid $color-ui-white;
+                border-radius: 20em;
                 font-size: 0.875em;
-                color: $color-text-white-light;
+                color: $color-text-white;
                 margin: 0.5rem 1rem;
-                padding-left: 0.5rem;
-                padding-right: 0.5rem;
+                background-color: $color-ui-white;
+                color: $color-brand-primary;
             }
         }
 
@@ -60,13 +69,14 @@ body{
         }
     }
 }
+
 footer{
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: $color-ui-white;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem;
+    color: $color-text-white;
 }
 
 .app-info{
@@ -78,7 +88,7 @@ footer{
     }
 
     .app-description{
-        color: $color-text-lightest;
+        color: $color-text-white-lightest;
         margin-bottom: 1rem;
         max-width: 300px;
     }
@@ -103,6 +113,59 @@ footer{
             margin-bottom: 0 !important;
             display: inline-block;
             vertical-align: middle;
+        }
+    }
+}
+
+.modal-wrapper{
+    @include transition($global-animation);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.83);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+
+    &.is-toggled{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .modal{
+        width: 90%;
+        max-width: 500px;
+        background-color: $color-ui-white;
+        border-radius: 0.5em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        padding: 2rem;
+        text-align: center;
+
+        input{
+            display: block;
+            border: none;
+            border-bottom: 2px solid $color-brand-secondary;
+            margin: 0 auto 1.5rem;
+            max-width: 400px;
+        }
+
+        .flex{
+            width: 100%;
+        }
+        button{
+            border-radius: 2em;
+            margin: 0 !important;
+
+            &[type="submit"]{
+                margin-left: 2rem !important;
+                background-color: $color-brand-secondary;
+                color: $color-text-white;
+            }
         }
     }
 }

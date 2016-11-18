@@ -61,17 +61,17 @@
 		}
 	});
 
-	Router::post("/corpse", function($id){
+	Router::post("/corpse", function(){
 		global $db;
-
-		if($db -> exists("Corpse", "ID", $id)){
 			if($data = Request::post(["title", "initial"])){
 				$db -> insert("Corpse", [
 					"Title" => $data["title"],
 					"Content" => $data["initial"]."\n"
 				]);
+
+				HTTP::type("json");
+				return new JSON(["Corpse" => $db -> last()]);
 			}
-		}
 	});
 
 
