@@ -22,7 +22,16 @@
 				$corpse = $db -> select("Corpse", ["Title", "Content"], "ID", $id)[0];
 
 				$this -> _title = $corpse["Title"];
-				$this -> _content = $corpse["Content"];
+				$this -> _content = "";
+
+                $text = explode("\n", $corpse["Content"]);
+				array_pop($text);
+
+                foreach($text as $index => $t){
+                    $this -> _content .= "<p>".$text[$index]."</p>";
+                }
+
+
 			}else{
 				HTTP::error(404);
 			}

@@ -25,6 +25,11 @@
 				$this -> _title = $corpse["Title"];
 				$text = explode("\n", $corpse["Content"]);
 				array_pop($text);
+
+                foreach($text as $index => $t){
+                    $text[$index] = "<p>".$text[$index]."</p>";
+                }
+
 				$this -> first = $text[0];
 				$this -> last = end($text);
 			}else{
