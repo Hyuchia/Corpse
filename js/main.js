@@ -12,4 +12,18 @@ $_ready(function(){
 		}
 	});
 
+	$_("form").submit(function(e){
+		e.preventDefault();
+		Request.post("localhost/Corpse/" + $_("input[type='hidden']").value(), "add=" + encodeURI($_("input[name='add']").value()),{
+
+			onsuccess: function(data){
+				console.log(data);
+			},
+
+			onerror: function(){
+
+			}
+		});
+	});
+
 });

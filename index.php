@@ -49,6 +49,18 @@
 		return new corpseAdd($id);
 	});
 
+	Router::post("/{id}", function($id){
+		global $db;
+
+		if($db -> exists("Corpse", "ID", $id)){
+			if($data = Request::post(["add"])){
+				$prev = $db -> select("Corpse", ["Content"], "ID", $id)[0]["Content"];
+
+				$db -> update("Corpse", ["Content" => $prev.$data["add"]."\n"], "ID", $id);
+			}
+		}
+	});
+
 	/**
 	 * Make the router listen to requests.
 	 *
