@@ -42,11 +42,30 @@
 	});
 
 	Router::get("/{id}", function($id){
-		return new corpse($id);
+		global $db;
+
+		if($db -> exists("Corpse", "ID", $id)){
+			HTTP::type("json");
+			$corpse = $db -> select("Corpse", ["Title", "Content"], "ID", $id)[0];
+
+			return new JSON($corpse);
+		}else{
+			HTTP::error(404);
+		}
 	});
 
 	Router::get("/corpse/{id}", function($id){
-		return new corpseAdd($id);
+		global $db;
+		if($db -> exists("Corpse", "ID", $id)){
+			HTTP::type("json");
+
+			$corpse = $db -> select("Corpse", ["Title", "Content"], "ID", $id)[0];
+			$text = explode("\n", $corpse["Content"]);
+
+			return new JSON(["Title" => $corpse["Title"], "Fragment" => end($text)]);
+		}else{
+			HTTP::error(404);
+		}
 	});
 
 	Router::post("/corpse/{id}", function($id){
@@ -60,6 +79,21 @@
 			}
 		}
 	});
+
+	Router::post("/corpse", function($id){
+		global $db;
+
+		if($db -> exists("Corpse", "ID", $id)){
+			if($data = Request::post(["title", "initial"])){
+				$db -> insert("Corpse", [
+					"Title" => $data["title"],
+					"Content" => $data["initial"]."\n"
+				]);
+			}
+		}
+	});
+
+
 
 	/**
 	 * Make the router listen to requests.

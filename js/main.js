@@ -1,29 +1,59 @@
 $_ready(function(){
 
-	$_(".nav .menu-icon").click(function(){
-		$_(this).parent().find("ul").toggleClass("active");
-		$_(this).toggleClass('fa-bars fa-times');
-	});
-
-	$_(".nav li").click(function(){
-		if($_(".menu-icon").isVisible()){
-			$_(".menu-icon").toggleClass('fa-bars fa-times');
-			$_(this).parent().parent().find("ul").toggleClass("active");
-		}
-	});
-
-	$_("form").submit(function(e){
+	$_(".new-form").submit(function(e){
 		e.preventDefault();
-		Request.post("/Corpse/corpse/" + $_("input[type='hidden']").value(), "add=" + encodeURI($_("input[name='add']").value()),{
+		Request.post("/Corpse/corpse/", "title=" + encodeURI($_("input[name='title']").value() + "&" +  "initial=" + encodeURI($_("input[name='initial']").value() ),{
 
-			onsuccess: function(data){
+			onload: function(data){
 				console.log(data);
 			},
 
-			onerror: function(){
+			error: function(){
 
 			}
 		});
+	});
+
+	$_(".fragment-form").submit(function(e){
+		e.preventDefault();
+		Request.post("/Corpse/corpse/" + $_("input[type='hidden']").value(), "add=" + encodeURI($_("input[name='add']").value()),{
+
+			onload: function(data){
+				console.log(data);
+			},
+
+			error: function(){
+
+			}
+		});
+	});
+
+
+	$_("[data-trigger]").click(function(){
+		switch($_(this).data("trigger")){
+			case "full-corpse":
+				Request.json("/Corpse/" + $_(this).data("corpse"), {
+					onload: function(data){
+						console.log(data);
+					},
+
+					error: function(data){
+						console.log(data);
+					}
+				});
+				break;
+			case "fragment":
+					Request.json("/Corpse/corpse" + $_(this).data("corpse"), {
+						onload: function(data){
+							console.log(data);
+						},
+
+						error: function(data){
+							console.log(data);
+						}
+					});
+					break;
+		}
 	});
 
 });
