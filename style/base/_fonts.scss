@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 //  This file contains all fonts used in the project
 //------------------------------------------------------------------------------
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700';
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Playfair+Display|Lato');
 
 /**
  *    Native fonts of common devices
@@ -16,13 +16,13 @@ $system-font-stack: -apple-system, BlinkMacSystemFont,
  *    Main font used in project
  *    @type String | List
  */
-$font-family-primary: $system-font-stack;
+$font-family-primary: "Lato";
 
 /**
  *    Secondary font used in project
  *    @type String | List
  */
-$font-family-secondary: $system-font-stack;
+$font-family-secondary: "Playfair Display";
 
 /**
  *    Creates font weight variables from predefined variable

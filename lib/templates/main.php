@@ -9,7 +9,7 @@
     class main extends Template{
 
         // Set Meta Tags Information.
-        public $_title = "Aegis Framework";
+        public $_title = "Corpse App";
 		public $corpses;
 
         // Set what page and template should be used to render this template.

@@ -411,14 +411,14 @@
         @if $breakpoint == '' {
             @for $i from 1 to $grid-column-count + 1{
                 .offset-#{$label}#{$i}{
-                    margin-left: calc( (100%/#{$grid-column-count}) * #{$i});
+                    margin-left: calc( (100%/#{$grid-column-count}) * #{$i}) !important;
                 }
             }
         }@else{
             @include respond-to($breakpoint){
                 @for $i from 1 to $grid-column-count + 1{
                     .offset-#{$label}#{$i}{
-                        margin-left: calc( (100%/#{$grid-column-count}) * #{$i});
+                        margin-left: calc( (100%/#{$grid-column-count}) * #{$i}) !important;
                     }
                 }
             }

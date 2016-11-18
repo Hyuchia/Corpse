@@ -1,9 +1,16 @@
-<h1>{{_title}}</h1>
-
-<section>{{last}}</section>
-
-<form method="post">
-	<input type="text" name="add">
-	<input type="hidden" value="{{id}}">
-	<button type="submit">Send</button>
-</form>
+<div class="full-corpse">
+    <h1>{{_title}}</h1>
+    <p>{{last}}</p>
+</div>
+<footer>
+	<div class="app-info flex -justify-around -align-items-center">
+		<div class="flex__item -tab2">
+			<a href="" class="app-logo">Corpse</a>
+		</div>
+		<form method="post" class="flex__item -tab10 flex -nowrap">
+			<input type="text" name="add" placeholder="Type your continuation of the corpse">
+			<input type="hidden" value="{{id}}">
+			<button type="submit" class="btn -bkg-primary h-txt-bold">Send</button>
+		</form>
+	</div>
+</footer>

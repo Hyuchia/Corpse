@@ -1,8 +1,8 @@
 $_ready(function(){
 
-	$_(".new-form").submit(function(e){
+	$_("form.new-corpse").submit(function(e){
 		e.preventDefault();
-		Request.post("/Corpse/corpse/", "title=" + encodeURI($_("input[name='title']").value() + "&" +  "initial=" + encodeURI($_("input[name='initial']").value() ),{
+		Request.post("/Corpse/corpse/", "title=" + encodeURI($_("input[name='title']").value()) + "&" +  "initial=" + encodeURI($_("input[name='initial']").value() ),{
 
 			onload: function(data){
 				console.log(data);
@@ -14,7 +14,7 @@ $_ready(function(){
 		});
 	});
 
-	$_(".fragment-form").submit(function(e){
+	$_("form.new-fragment").submit(function(e){
 		e.preventDefault();
 		Request.post("/Corpse/corpse/" + $_("input[type='hidden']").value(), "add=" + encodeURI($_("input[name='add']").value()),{
 

@@ -1,0 +1,36 @@
+.full-corpse{
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 5rem 0 0;
+    color: $color-text-white;
+
+    h1{
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+    }
+
+    p{
+        text-align: justify;
+    }
+}
+
+form{
+    text-align: center;
+
+    input{
+        width: 100%;
+        background-color: transparent;
+        border: 2px solid $color-brand-primary;
+        color: $color-brand-primary;
+
+        &:hover,
+        &:focus{
+            background-color: transparent;
+        }
+    }
+
+    button{
+        margin-left: 2rem;
+    }
+}

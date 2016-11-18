@@ -1,0 +1,108 @@
+body{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: $color-brand-bkg;
+    background: url('../img/bkg-blur.jpg') 50% 50% no-repeat;
+    background-size: cover;
+}
+
+.corpses-previews{
+    width: 100vw;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.54);
+    padding-bottom: 27vh;
+
+    .previews-wrapper{
+        width: auto;
+        overflow-x: scroll;
+
+        .preview{
+            @include transition($global-animation);
+            padding: 2rem 1rem;
+            text-align: center;
+            color: $color-text-white;
+            flex-basis: 27vw;
+            min-width: 27vw;
+
+            &:hover{
+                background-color: rgba($color-ui-white, 0.06);
+            }
+
+            h1{
+                text-transform: uppercase;
+                letter-spacing: 3px
+            }
+
+            .preview-actions button{
+                background-color: transparent;
+                border-bottom: 1px solid $color-text-white-light;
+                font-weight: bold;
+                font-size: 0.875em;
+                color: $color-text-white-light;
+                margin: 0.5rem 1rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+        }
+
+        @include respond-to('lap'){
+            display: flex;
+            @include justify-content(flex-start);
+            @include flex-wrap(nowrap);
+            padding-bottom: 0;
+            height: 100vh;
+
+            .preview{
+                height: 100vh;
+                padding-top: 20%;
+            }
+        }
+    }
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $color-ui-white;
+    padding: 1.5rem 1rem;
+}
+
+.app-info{
+
+    .app-logo{
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .app-description{
+        color: $color-text-lightest;
+        margin-bottom: 1rem;
+        max-width: 300px;
+    }
+
+    .app-info__actions{
+        text-align: center;
+
+        button{
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    @include respond-to('lap'){
+        .app-logo{
+            margin-bottom: 0 !important;
+            display: inline-block;
+            margin-right: 2rem;
+            vertical-align: middle;
+        }
+        .app-description{
+            margin-bottom: 0 !important;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}

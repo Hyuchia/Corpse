@@ -42,30 +42,11 @@
 	});
 
 	Router::get("/{id}", function($id){
-		global $db;
-
-		if($db -> exists("Corpse", "ID", $id)){
-			HTTP::type("json");
-			$corpse = $db -> select("Corpse", ["Title", "Content"], "ID", $id)[0];
-
-			return new JSON($corpse);
-		}else{
-			HTTP::error(404);
-		}
+		return new corpse($id);
 	});
 
 	Router::get("/corpse/{id}", function($id){
-		global $db;
-		if($db -> exists("Corpse", "ID", $id)){
-			HTTP::type("json");
-
-			$corpse = $db -> select("Corpse", ["Title", "Content"], "ID", $id)[0];
-			$text = explode("\n", $corpse["Content"]);
-
-			return new JSON(["Title" => $corpse["Title"], "Fragment" => end($text)]);
-		}else{
-			HTTP::error(404);
-		}
+		return new corpseAdd($id);
 	});
 
 	Router::post("/corpse/{id}", function($id){
